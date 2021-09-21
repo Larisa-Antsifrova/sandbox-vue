@@ -1,6 +1,14 @@
 <template>
   <div id="app">
-    <Button>Brand New Button</Button>
+    <h1>{{ title }}</h1>
+    <Button
+      @click="
+        () => {
+          increment(5);
+        }
+      "
+      >Brand New Button</Button
+    >
   </div>
 </template>
 
@@ -10,6 +18,21 @@ import Button from './components/Button.vue';
 export default {
   name: 'App',
   components: { Button },
+  data() {
+    return {
+      amountOfClicks: 0,
+    };
+  },
+  computed: {
+    title() {
+      return `Amount of clicks: ${this.amountOfClicks}`;
+    },
+  },
+  methods: {
+    increment(num) {
+      this.amountOfClicks += num;
+    },
+  },
 };
 </script>
 
