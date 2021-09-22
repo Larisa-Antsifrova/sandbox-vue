@@ -1,5 +1,5 @@
 <template>
-  <button v-on="$listeners" v-bind:type="type" class="btn">
+  <button v-on="$listeners" v-bind:type="type" class="btn btn--outlined">
     <slot></slot>
   </button>
 </template>
@@ -26,5 +26,11 @@ export default {
   border: 1px solid transparent;
 
   cursor: pointer;
+
+  &--outlined {
+    color: #ff6620;
+    background-color: #ffffff;
+    border: 1px solid #ff6620;
+  }
 }
 </style>

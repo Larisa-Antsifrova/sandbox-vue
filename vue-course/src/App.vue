@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div :id="$style.app">
     <h1>{{ title }}</h1>
     <Button
       @click="
@@ -36,7 +36,7 @@ export default {
 };
 </script>
 
-<style>
+<style module>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -44,5 +44,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+
+  background-color: #eeeeee;
 }
 </style>
