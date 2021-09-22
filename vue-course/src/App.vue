@@ -7,6 +7,7 @@
           increment(5);
         }
       "
+      outlined
       >Brand New Button</Button
     >
   </div>
