@@ -13,7 +13,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .btn {
   display: inline-block;
   min-width: 220px;
