@@ -1,6 +1,6 @@
 <template>
   <div v-if="isVisible">
-    <h1>Title: Directives</h1>
+    <h1 v-show="isVisible">Title: Directives</h1>
   </div>
 </template>
 
