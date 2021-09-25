@@ -1,6 +1,6 @@
 <template>
   <div :id="$style.app">
-    <h2>{{ title }}</h2>
+    <h1>{{ title }}</h1>
     <Directives />
     <Button
       @click="
