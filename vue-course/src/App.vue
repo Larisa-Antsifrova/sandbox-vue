@@ -1,6 +1,7 @@
 <template>
   <div :id="$style.app">
-    <h1>{{ title }}</h1>
+    <h2>{{ title }}</h2>
+    <Directives />
     <Button
       @click="
         () => {
@@ -15,10 +16,11 @@
 
 <script>
 import Button from './components/Button.vue';
+import Directives from './components/Directives.vue';
 
 export default {
   name: 'App',
-  components: { Button },
+  components: { Button, Directives },
   data() {
     return {
       amountOfClicks: 0,
