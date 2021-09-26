@@ -2,6 +2,7 @@
   <div :id="$style.app">
     <h1>{{ title }}</h1>
     <Directives />
+    <StarRating :rating="3.5" />
     <Button
       @click="
         () => {
@@ -17,10 +18,11 @@
 <script>
 import Button from './components/Button.vue';
 import Directives from './components/Directives.vue';
+import StarRating from './components/StarRating.vue';
 
 export default {
   name: 'App',
-  components: { Button, Directives },
+  components: { Button, Directives, StarRating },
   data() {
     return {
       amountOfClicks: 0,
