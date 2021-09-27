@@ -57,8 +57,8 @@ export default {
 
 .star {
   display: inline-block;
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
   margin: 0 3px;
   flex-shrink: 0;
 
