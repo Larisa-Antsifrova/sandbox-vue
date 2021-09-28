@@ -1,39 +1,19 @@
 <template>
   <div :id="$style.app">
-    <ApartmentItem
-      :description="apartment.descr"
-      :price="apartment.price"
-      :rating="apartment.rating"
-      :imgSrc="
-        'https://i.pinimg.com/originals/d3/26/02/d32602bc80600de34e3ff98853d93934.jpg'
-      "
-    />
+    <ApartmentsList :items="apartments" />
   </div>
 </template>
 
 <script>
-import ApartmentItem from './components/apartment/ApartmentItem.vue';
+import ApartmentsList from './components/apartment/ApartmentsList.vue';
+import apartments from './components/apartment/apartments';
 
 export default {
   name: 'App',
-  components: { ApartmentItem },
+  components: { ApartmentsList },
   data() {
     return {
-      apartment: {
-        id: '1234567890',
-        title: 'Awesome Apartment',
-        descr: 'The best apartment with breakfast and unlimited tea.',
-        price: 1200,
-        rating: 4.7,
-        location: {
-          city: 'Kyiv',
-        },
-        owner: {
-          name: 'Ellen',
-          phone: '063-33-33-330',
-          email: 'ellen@mail.com',
-        },
-      },
+      apartments,
     };
   },
 };
