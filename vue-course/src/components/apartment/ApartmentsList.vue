@@ -1,5 +1,6 @@
 <template>
   <Container>
+    <slot name="title"></slot>
     <div class="apartments-list">
       <ApartmentItem
         v-for="{ id, descr, rating, imgUrl, price } in items"

@@ -1,6 +1,10 @@
 <template>
   <div :id="$style.app">
-    <ApartmentsList :items="apartments" />
+    <ApartmentsList :items="apartments">
+      <template v-slot:title>
+        Appartments
+      </template>
+    </ApartmentsList>
   </div>
 </template>
 
