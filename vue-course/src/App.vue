@@ -12,6 +12,7 @@
           :rating="apartment.rating"
           :imgSrc="apartment.imgUrl"
           :price="apartment.price"
+          @click.native="handleItemClick"
         />
       </template>
     </ApartmentsList>
@@ -26,6 +27,11 @@ import apartments from './components/apartment/apartments';
 export default {
   name: 'App',
   components: { ApartmentsList, ApartmentItem },
+  methods: {
+    handleItemClick() {
+      console.log('Item has been clicked on.');
+    },
+  },
   data() {
     return {
       apartments,

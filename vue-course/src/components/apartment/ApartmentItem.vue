@@ -1,5 +1,5 @@
 <template>
-  <div class="apartment-item" @click="log(imgSrc, $event)">
+  <div class="apartment-item">
     <div class="apartment-item__inner">
       <img :src="imgSrc" alt="" class="apartment-item__photo" />
       <div class="apartment-item__content">
@@ -10,6 +10,9 @@
           <StarRating :rating="rating" />
         </div>
         <div class="apartment-item__price">UAH {{ price }}</div>
+        <a href="https://google.com" @click.prevent.stop="handleLinkClick"
+          >Details</a
+        >
       </div>
     </div>
   </div>
@@ -45,6 +48,9 @@ export default {
     log(src, event) {
       console.log('Param 1: ', src);
       console.log('Param 2: ', event);
+    },
+    handleLinkClick() {
+      console.log('The link has been clicked on.');
     },
   },
 };
