@@ -17,9 +17,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../assets/scss/variables.scss';
+
 .custom-input {
   height: 40px;
-  border: 2px solid #ff662d;
+  border: 2px solid $main-color;
   font-size: 18px;
   outline: none;
   line-height: inherit;
