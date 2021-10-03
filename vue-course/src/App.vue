@@ -2,6 +2,7 @@
   <div :id="$style.app">
     <h2>{{ text }}</h2>
     <CustomInput v-model="text" />
+    <CustomSelect :items="['name', 'label', 'price']" />
 
     <ApartmentsList :items="apartments">
       <template v-slot:title>
@@ -26,11 +27,12 @@
 import ApartmentsList from './components/apartment/ApartmentsList.vue';
 import ApartmentItem from './components/apartment/ApartmentItem.vue';
 import CustomInput from './components/shared/CustomInput.vue';
+import CustomSelect from './components/shared/CustomSelect.vue';
 import apartments from './components/apartment/apartments';
 
 export default {
   name: 'App',
-  components: { ApartmentsList, ApartmentItem, CustomInput },
+  components: { ApartmentsList, ApartmentItem, CustomInput, CustomSelect },
   methods: {
     handleItemClick() {
       console.log('Item has been clicked on.');
