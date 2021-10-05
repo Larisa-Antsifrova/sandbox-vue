@@ -1,8 +1,8 @@
 <template>
-  <form>
+  <form @submit.prevent="handleSubmit">
     <CustomSelect :items="['Kyiv', 'Vyshgorod', 'Odessa', 'Lviv']" />
     <CustomInput />
-    <Button>Search Apartment</Button>
+    <Button type="submit">Search Apartment</Button>
   </form>
 </template>
 
@@ -16,6 +16,11 @@ export default {
     CustomSelect,
     CustomInput,
     Button,
+  },
+  methods: {
+    handleSubmit() {
+      this.$emit('submit', 'The form is submitted!');
+    },
   },
 };
 </script>
