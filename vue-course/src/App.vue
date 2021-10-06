@@ -1,19 +1,25 @@
 <template>
-  <div :id="$style.app">
-    <ApartmentFilterForm @submit="filter" />
-    <p v-if="!filteredApartments.length">Nothing found...</p>
-    <ApartmentsList v-else :items="filteredApartments">
-      <template v-slot:apartment="{ apartment }">
-        <ApartmentItem
-          :key="apartment.id"
-          :description="apartment.descr"
-          :rating="apartment.rating"
-          :imgSrc="apartment.imgUrl"
-          :price="apartment.price"
-          @click.native="handleItemClick"
-        />
-      </template>
-    </ApartmentsList>
+  <div id="app">
+    <div class="content">
+      <ApartmentFilterForm @submit="filter" />
+
+      <p v-if="!filteredApartments.length">Nothing found...</p>
+
+      <ApartmentsList v-else :items="filteredApartments">
+        <template v-slot:apartment="{ apartment }">
+          <ApartmentItem
+            :key="apartment.id"
+            :description="apartment.descr"
+            :rating="apartment.rating"
+            :imgSrc="apartment.imgUrl"
+            :price="apartment.price"
+            @click.native="handleItemClick"
+          />
+        </template>
+      </ApartmentsList>
+    </div>
+
+    <Footer />
   </div>
 </template>
 
@@ -23,12 +29,15 @@ import ApartmentsList from './components/apartment/ApartmentsList.vue';
 import ApartmentItem from './components/apartment/ApartmentItem.vue';
 import apartments from './components/apartment/apartments';
 
+import Footer from './components/Footer.vue';
+
 export default {
   name: 'App',
   components: {
     ApartmentFilterForm,
     ApartmentsList,
     ApartmentItem,
+    Footer,
   },
   methods: {
     handleItemClick() {
@@ -77,11 +86,16 @@ export default {
 
 <style module>
 #app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
   font-family: Montserrat, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+}
+
+.content {
+  flex-grow: 1;
 }
 </style>
