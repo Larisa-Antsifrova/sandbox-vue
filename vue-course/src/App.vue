@@ -1,8 +1,8 @@
 <template>
   <div :id="$style.app">
-    <ApartmentFilterForm @submit="logger" />
+    <ApartmentFilterForm @submit="filter" />
 
-    <ApartmentsList :items="apartments">
+    <ApartmentsList :items="filteredApartments">
       <template v-slot:apartment="{ apartment }">
         <ApartmentItem
           :key="apartment.id"
@@ -34,15 +34,43 @@ export default {
     handleItemClick() {
       console.log('Item has been clicked on.');
     },
-    logger(value) {
-      console.log('Logger: ', value);
+    filter({ city, price }) {
+      this.filters.city = city;
+      this.filters.price = price;
+    },
+    filterByCityName(apartments) {
+      if (!this.filters.city) {
+        return apartments;
+      }
+
+      return apartments.filter(
+        apartment => apartment.location.city === this.filters.city,
+      );
+    },
+    filterByPrice(apartments) {
+      if (!this.filters.price) {
+        return apartments;
+      }
+
+      return apartments.filter(
+        apartment => apartment.price >= this.filters.price,
+      );
     },
   },
   data() {
     return {
       text: '',
       apartments,
+      filters: {
+        city: '',
+        price: 0,
+      },
     };
+  },
+  computed: {
+    filteredApartments() {
+      return this.filterByPrice(this.filterByCityName(this.apartments));
+    },
   },
 };
 </script>
