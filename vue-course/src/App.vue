@@ -1,8 +1,8 @@
 <template>
   <div :id="$style.app">
     <ApartmentFilterForm @submit="filter" />
-
-    <ApartmentsList :items="filteredApartments">
+    <p v-if="!filteredApartments.length">Nothing found...</p>
+    <ApartmentsList v-else :items="filteredApartments">
       <template v-slot:apartment="{ apartment }">
         <ApartmentItem
           :key="apartment.id"
