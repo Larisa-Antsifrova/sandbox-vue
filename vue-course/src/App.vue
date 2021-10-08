@@ -1,22 +1,28 @@
 <template>
   <div id="app">
     <div class="content">
-      <ApartmentFilterForm @submit="filter" />
+      <Header />
 
-      <p v-if="!filteredApartments.length">Nothing found...</p>
+      <Container>
+        <ApartmentFilterForm @submit="filter" />
+      </Container>
 
-      <ApartmentsList v-else :items="filteredApartments">
-        <template v-slot:apartment="{ apartment }">
-          <ApartmentItem
-            :key="apartment.id"
-            :description="apartment.descr"
-            :rating="apartment.rating"
-            :imgSrc="apartment.imgUrl"
-            :price="apartment.price"
-            @click.native="handleItemClick"
-          />
-        </template>
-      </ApartmentsList>
+      <Container>
+        <p v-if="!filteredApartments.length">Nothing found...</p>
+
+        <ApartmentsList v-else :items="filteredApartments">
+          <template v-slot:apartment="{ apartment }">
+            <ApartmentItem
+              :key="apartment.id"
+              :description="apartment.descr"
+              :rating="apartment.rating"
+              :imgSrc="apartment.imgUrl"
+              :price="apartment.price"
+              @click.native="handleItemClick"
+            />
+          </template>
+        </ApartmentsList>
+      </Container>
     </div>
 
     <Footer />
@@ -27,9 +33,11 @@
 import ApartmentFilterForm from './components/apartment/ApartmentFilterForm.vue';
 import ApartmentsList from './components/apartment/ApartmentsList.vue';
 import ApartmentItem from './components/apartment/ApartmentItem.vue';
-import apartments from './components/apartment/apartments';
-
+import Container from './components/shared/Container.vue';
 import Footer from './components/Footer.vue';
+import Header from './components/Header.vue';
+
+import apartments from './components/apartment/apartments';
 
 export default {
   name: 'App',
@@ -37,7 +45,9 @@ export default {
     ApartmentFilterForm,
     ApartmentsList,
     ApartmentItem,
+    Container,
     Footer,
+    Header,
   },
   methods: {
     handleItemClick() {
@@ -84,7 +94,7 @@ export default {
 };
 </script>
 
-<style module>
+<style lang="scss" scoped>
 #app {
   display: flex;
   flex-direction: column;
@@ -97,5 +107,6 @@ export default {
 
 .content {
   flex-grow: 1;
+  padding-top: 120px;
 }
 </style>
