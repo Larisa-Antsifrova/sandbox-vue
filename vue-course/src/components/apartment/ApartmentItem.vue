@@ -1,21 +1,19 @@
 <template>
   <div class="apartment-item">
-    <div class="apartment-item__inner">
-      <img :src="imgSrc" alt="" class="apartment-item__photo" />
-      <div class="apartment-item__content">
-        <p class="apartment-item__description">
-          {{ description }}
-        </p>
-        <div class="apartment-item__rating">
-          <StarRating :rating="rating" />
+    <router-link :to="{ name: 'apartment' }" class="apartment-item__link">
+      <div class="apartment-item__inner">
+        <img :src="imgSrc" alt="" class="apartment-item__photo" />
+        <div class="apartment-item__content">
+          <p class="apartment-item__description">
+            {{ description }}
+          </p>
+          <div class="apartment-item__rating">
+            <StarRating :rating="rating" />
+          </div>
+          <div class="apartment-item__price">UAH {{ price }}</div>
         </div>
-        <div class="apartment-item__price">UAH {{ price }}</div>
-        <router-link
-          :to="{ name: 'apartment' }"
-          class="apartment-item__link"
-        ></router-link>
       </div>
-    </div>
+    </router-link>
   </div>
 </template>
 
@@ -43,12 +41,6 @@ export default {
     imgSrc: {
       type: String,
       default: '',
-    },
-  },
-  methods: {
-    log(src, event) {
-      console.log('Param 1: ', src);
-      console.log('Param 2: ', event);
     },
   },
 };
@@ -108,11 +100,9 @@ export default {
   }
 
   &__link {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    text-decoration: none;
+    color: #ffffff;
+    font: inherit;
   }
 }
 </style>
