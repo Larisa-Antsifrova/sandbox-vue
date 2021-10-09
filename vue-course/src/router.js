@@ -1,11 +1,7 @@
 import VueRouter from 'vue-router';
-import One from './pages/One.vue';
-import Two from './pages/Two.vue';
+import HomePage from './pages/HomePage.vue';
 
-const routes = [
-  { path: '/one', component: One },
-  { path: '/two', component: Two },
-];
+const routes = [{ path: '/', component: HomePage }];
 
 const router = new VueRouter({ routes, mode: 'history' });
 
