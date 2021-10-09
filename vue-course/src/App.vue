@@ -2,7 +2,7 @@
   <div id="app">
     <div class="content">
       <Header />
-
+      <router-view></router-view>
       <Container>
         <ApartmentFilterForm @submit="filter" />
       </Container>
