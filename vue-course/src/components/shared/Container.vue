@@ -12,6 +12,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
+  width: 80%;
   max-width: 1110px;
   margin: 0 auto;
 }

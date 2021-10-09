@@ -13,7 +13,6 @@
             :rating="apartment.rating"
             :imgSrc="apartment.imgUrl"
             :price="apartment.price"
-            @click.native="handleItemClick"
           />
         </template>
       </ApartmentsList>
@@ -30,7 +29,7 @@ import Container from '../components/shared/Container.vue';
 import apartments from '../components/apartment/apartments';
 
 export default {
-  name: 'App',
+  name: 'HomePage',
   components: {
     ApartmentFilterForm,
     ApartmentsList,
@@ -38,9 +37,6 @@ export default {
     Container,
   },
   methods: {
-    handleItemClick() {
-      console.log('Item has been clicked on.');
-    },
     filter({ city, price }) {
       this.filters.city = city;
       this.filters.price = price;

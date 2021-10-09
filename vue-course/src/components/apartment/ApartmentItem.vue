@@ -10,9 +10,10 @@
           <StarRating :rating="rating" />
         </div>
         <div class="apartment-item__price">UAH {{ price }}</div>
-        <a href="https://google.com" @click.prevent.stop="handleLinkClick"
-          >Details</a
-        >
+        <router-link
+          :to="{ name: 'apartment' }"
+          class="apartment-item__link"
+        ></router-link>
       </div>
     </div>
   </div>
@@ -48,9 +49,6 @@ export default {
     log(src, event) {
       console.log('Param 1: ', src);
       console.log('Param 2: ', event);
-    },
-    handleLinkClick() {
-      console.log('The link has been clicked on.');
     },
   },
 };
