@@ -4,7 +4,7 @@ import ApartmentPage from './pages/ApartmentPage.vue';
 
 const routes = [
   { path: '/', component: HomePage, name: 'home' },
-  { path: '/apartment', component: ApartmentPage, name: 'apartment' },
+  { path: '/apartments/:id', component: ApartmentPage, name: 'apartment' },
 ];
 
 const router = new VueRouter({ routes, mode: 'history' });
