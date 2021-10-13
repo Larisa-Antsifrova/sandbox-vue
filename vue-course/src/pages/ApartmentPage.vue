@@ -1,20 +1,27 @@
 <template>
   <Container>
-    <h1>Apartment Details Page</h1>
-
-    <p>Work in progress...</p>
+    <ApartmentMainInfo :apartment="apartment" />
   </Container>
 </template>
 
 <script>
 import Container from '../components/shared/Container.vue';
+import ApartmentMainInfo from '../components/apartment/ApartmentMainInfo.vue';
+
+import apartments from '../components/apartment/apartments';
 
 export default {
   name: 'ApartmentPage',
-  components: { Container },
+  components: { Container, ApartmentMainInfo },
+  computed: {
+    apartment() {
+      return apartments.find(
+        apartment => apartment.id === this.$route.params.id,
+      );
+    },
+  },
   mounted() {
-    console.log('id', this.$route.params.id);
-    console.log('name', this.$route.query.name);
+    console.log('apartment', this.apartment);
   },
 };
 </script>
