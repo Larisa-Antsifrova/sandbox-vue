@@ -1,7 +1,9 @@
 <template>
-  <Container>
-    <ApartmentMainInfo :apartment="apartment" />
-  </Container>
+  <main class="apartment-page">
+    <Container>
+      <ApartmentMainInfo :apartment="apartment" />
+    </Container>
+  </main>
 </template>
 
 <script>
@@ -26,4 +28,18 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.apartment-page {
+  padding-bottom: 55px;
+  &__content {
+    display: flex;
+    align-items: flex-start;
+  }
+  &__additional-info {
+    margin-left: 30px;
+    max-width: 350px;
+    flex-grow: 0;
+    flex-shrink: 1;
+  }
+}
+</style>
