@@ -11,6 +11,10 @@
             :owner="apartment.owner"
             class="apartment-page__owner"
           />
+          <ApartmentReviews
+            :reviews="reviewsList"
+            class="apartment-page__review"
+          />
         </div>
       </div>
     </Container>
@@ -21,13 +25,23 @@
 import Container from '../components/shared/Container.vue';
 import ApartmentMainInfo from '../components/apartment/ApartmentMainInfo.vue';
 import ApartmentOwner from '../components/apartment/ApartmentOwner.vue';
+import ApartmentReviews from '../components/reviews';
 
 import apartments from '../components/apartment/apartments';
+import reviewsList from '../components/reviews/reviews.json';
 
 export default {
   name: 'ApartmentPage',
-  components: { Container, ApartmentMainInfo, ApartmentOwner },
+  components: {
+    Container,
+    ApartmentMainInfo,
+    ApartmentOwner,
+    ApartmentReviews,
+  },
   computed: {
+    reviewsList() {
+      return reviewsList;
+    },
     apartment() {
       return apartments.find(
         apartment => apartment.id === this.$route.params.id,
@@ -60,8 +74,9 @@ export default {
     flex-shrink: 1;
   }
 
-  &__owner {
-    min-width: 350px;
+  &__owner,
+  &__review {
+    max-width: 350px;
     margin-left: 30px;
   }
 }
