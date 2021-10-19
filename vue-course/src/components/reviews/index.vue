@@ -9,13 +9,13 @@
     </div>
 
     <ReviewsItem
-      v-for="review in reviews"
+      v-for="review in visibleReviews"
       :key="review.author"
       :review="review"
     />
 
-    <button class="reviews__show-more">
-      Read more...
+    <button class="reviews__show-more" @click="toggleVisibleReviews">
+      {{ buttonText }}
     </button>
   </section>
 </template>
@@ -27,6 +27,11 @@ import StarRating from '../StarRating.vue';
 export default {
   name: 'Reviews',
   components: { ReviewsItem, StarRating },
+  data() {
+    return {
+      reviewsLimit: 2,
+    };
+  },
   props: {
     reviews: {
       type: Array,
@@ -42,6 +47,18 @@ export default {
     },
     amountOfReviews() {
       return this.reviews.length;
+    },
+    visibleReviews() {
+      return this.reviews.slice(0, this.reviewsLimit);
+    },
+    buttonText() {
+      return this.reviews.length === this.reviewsLimit ? 'Hide' : 'Show more';
+    },
+  },
+  methods: {
+    toggleVisibleReviews() {
+      this.reviewsLimit =
+        this.reviews.length === this.reviewsLimit ? 2 : this.reviews.length;
     },
   },
 };
