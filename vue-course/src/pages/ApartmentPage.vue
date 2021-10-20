@@ -48,8 +48,23 @@ export default {
       );
     },
   },
+  beforeCreate() {
+    console.log('in beforeCreate', this.reviewsList);
+  },
+  created() {
+    console.log('in created', this.reviewsList);
+  },
+  beforeMount() {
+    console.log('in beforeMount', this.$el);
+  },
   mounted() {
-    console.log('apartment', this.apartment);
+    console.log('in mounted', this.$el);
+  },
+  beforeDestroy() {
+    console.log('in beforeDestroy', this.$el);
+  },
+  destroyed() {
+    console.log('in destroyed', this.$el);
   },
 };
 </script>
