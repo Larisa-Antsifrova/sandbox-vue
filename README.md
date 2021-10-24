@@ -6,6 +6,8 @@ The new marathon has just begun!
 - Directives
 - Routing
 - Dynamic routes
+- Component's lifecycle methods
+- Ajax requests
 
 ## NetNinja
 - In process
