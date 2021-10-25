@@ -1,7 +1,7 @@
 <template>
   <main class="apartment-page">
     <Container>
-      <div class="apartment-page__content">
+      <div v-if="apartment" class="apartment-page__content">
         <ApartmentMainInfo
           :apartment="apartment"
           class="apartment-page__main-info"
@@ -26,8 +26,8 @@ import Container from '../components/shared/Container.vue';
 import ApartmentMainInfo from '../components/apartment/ApartmentMainInfo.vue';
 import ApartmentOwner from '../components/apartment/ApartmentOwner.vue';
 import ApartmentReviews from '../components/reviews';
+import { getApartmentById } from '../services/apartments-service';
 
-import apartments from '../components/apartment/apartments';
 import reviewsList from '../components/reviews/reviews.json';
 
 export default {
@@ -42,30 +42,40 @@ export default {
     reviewsList() {
       return reviewsList;
     },
-    apartment() {
-      return apartments.find(
-        apartment => apartment.id === this.$route.params.id,
-      );
-    },
   },
-  beforeCreate() {
-    console.log('in beforeCreate', this.reviewsList);
+  async created() {
+    try {
+      const { id } = this.$route.params;
+      const { data } = await getApartmentById(id);
+      this.apartment = data;
+    } catch (error) {
+      console.error(error);
+    }
   },
-  created() {
-    console.log('in created', this.reviewsList);
+  data() {
+    return {
+      apartment: null,
+    };
   },
-  beforeMount() {
-    console.log('in beforeMount', this.$el);
-  },
-  mounted() {
-    console.log('in mounted', this.$el);
-  },
-  beforeDestroy() {
-    console.log('in beforeDestroy', this.$el);
-  },
-  destroyed() {
-    console.log('in destroyed', this.$el);
-  },
+  // Examples of life cycle hooks
+  // beforeCreate() {
+  //   console.log('in beforeCreate', this.reviewsList);
+  // },
+  // created() {
+  //   console.log('in created', this.reviewsList);
+  // },
+  // beforeMount() {
+  //   console.log('in beforeMount', this.$el);
+  // },
+  // mounted() {
+  //   console.log('in mounted', this.$el);
+  // },
+  // beforeDestroy() {
+  //   console.log('in beforeDestroy', this.$el);
+  // },
+  // destroyed() {
+  //   console.log('in destroyed', this.$el);
+  // },
 };
 </script>
 
