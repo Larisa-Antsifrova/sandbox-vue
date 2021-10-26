@@ -1,7 +1,13 @@
 <template>
   <form class="form" @submit.prevent="handleSubmit">
     <CustomSelect class="form__select" :items="cities" v-model="city" />
-    <CustomInput v-model="price" placeholder="Price, from" />
+    <CustomInput
+      v-model="price"
+      placeholder="Price, from"
+      error-message="Should not be empty"
+      type="number"
+      :rules="rules"
+    />
     <Button class="form__submit" type="submit">Search Apartment</Button>
   </form>
 </template>
@@ -10,6 +16,7 @@
 import CustomSelect from '../shared/CustomSelect.vue';
 import CustomInput from '../shared/CustomInput.vue';
 import Button from '../Button.vue';
+import { isRequired, charLimit } from '../../utils/validationRules';
 
 export default {
   components: {
@@ -26,6 +33,9 @@ export default {
         'Odessa',
         'Lviv',
       ];
+    },
+    rules() {
+      return [isRequired, charLimit(10)];
     },
   },
   data() {

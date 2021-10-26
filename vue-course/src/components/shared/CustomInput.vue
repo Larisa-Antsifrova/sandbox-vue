@@ -1,10 +1,36 @@
 <template>
-  <input v-on="listeners" class="custom-input" />
+  <div class="wrapper-input">
+    <input
+      v-on="listeners"
+      v-bind="$attrs"
+      class="custom-input"
+      :class="!isValid && 'custom-input--error'"
+    />
+    <span v-if="!isValid" class="custom-input__error">{{ error }}</span>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'CustomInput',
+  inheritAttrs: false,
+  data() {
+    return {
+      isValid: true,
+      error: '',
+    };
+  },
+  props: {
+    value: { type: String, default: '' },
+    errorMessage: {
+      type: String,
+      default: '',
+    },
+    rules: {
+      type: Array,
+      default: () => [],
+    },
+  },
   computed: {
     listeners() {
       return {
@@ -13,11 +39,35 @@ export default {
       };
     },
   },
+  methods: {
+    validate(value) {
+      this.isValid = this.rules.every(rule => {
+        const { hasPassed, message } = rule(value);
+
+        if (!hasPassed) {
+          this.error = message || this.errorMessage;
+        }
+
+        return hasPassed;
+      });
+    },
+  },
+  watch: {
+    value(value) {
+      this.validate(value);
+      console.log('value', value);
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 @import '../../assets/scss/variables.scss';
+
+.wrapper-input {
+  position: relative;
+  display: inline-flex;
+}
 
 .custom-input {
   height: 40px;
@@ -27,7 +77,7 @@ export default {
   line-height: inherit;
   padding: 8px 15px;
   &::placeholder {
-    color: inherit;
+    color: #000000;
   }
   &--error {
     border-color: red;
