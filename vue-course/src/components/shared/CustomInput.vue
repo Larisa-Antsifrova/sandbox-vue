@@ -39,6 +39,17 @@ export default {
       };
     },
   },
+  inject: ['form'],
+  mounted() {
+    if (!this.form) return;
+
+    this.form.registerInput(this);
+  },
+  beforeDestroy() {
+    if (!this.form) return;
+
+    this.form.unregisterInput(this);
+  },
   methods: {
     validate(value) {
       this.isValid = this.rules.every(rule => {
