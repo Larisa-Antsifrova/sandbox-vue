@@ -62,6 +62,9 @@ export default {
         return hasPassed;
       });
     },
+    reset() {
+      this.$emit('input', '');
+    },
   },
   watch: {
     value(value) {

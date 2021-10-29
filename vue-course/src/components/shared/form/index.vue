@@ -1,5 +1,5 @@
 <template>
-  <form class="form">
+  <form v-on="$listeners" class="form">
     <slot></slot>
   </form>
 </template>
@@ -23,6 +23,12 @@ export default {
     },
     unregisterInput(input) {
       this.inputs.filter(item => item !== input);
+    },
+    validate() {
+      this.inputs.every(input => input.validate());
+    },
+    reset() {
+      this.inputs.forEach(input => input.reset());
     },
   },
 };
