@@ -1,10 +1,17 @@
 <template>
-  <main class="login-page"></main>
+  <main class="login-page">
+    <LoginForm />
+  </main>
 </template>
 
 <script>
+import LoginForm from '../components/login';
+
 export default {
   name: 'LoginPage',
+  components: {
+    LoginForm,
+  },
 };
 </script>
 
