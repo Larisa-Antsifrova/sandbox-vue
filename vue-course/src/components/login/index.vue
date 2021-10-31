@@ -1,17 +1,30 @@
 <template>
-  <Form @submit="handleSubmit">
-    <CustomInput v-model="formData.email" name="email" />
-    <CustomInput v-model="formData.password" name="password" />
+  <Form @submit.prevent="handleSubmit">
+    <CustomInput v-model="formData.email" name="email" :rules="emailRules" />
+    <CustomInput
+      v-model="formData.password"
+      name="password"
+      type="password"
+      :rules="passwordRules"
+    />
+    <Button type="submit">Enter</Button>
   </Form>
 </template>
 
 <script>
 import Form from '../shared/form';
 import CustomInput from '../shared/CustomInput.vue';
+import Button from '../Button.vue';
+
+import {
+  emailValidation,
+  passwordValidation,
+  isRequired,
+} from '../../utils/validationRules';
 
 export default {
   name: 'Login',
-  components: { Form, CustomInput },
+  components: { Form, CustomInput, Button },
   data() {
     return {
       formData: {
@@ -20,9 +33,20 @@ export default {
       },
     };
   },
+  computed: {
+    rules() {
+      return { emailValidation, passwordValidation, isRequired };
+    },
+    emailRules() {
+      return [this.rules.isRequired, this.rules.emailValidation];
+    },
+    passwordRules() {
+      return [this.rules.isRequired, this.rules.passwordValidation];
+    },
+  },
   methods: {
     handleSubmit() {
-      console.log(this.data);
+      console.log(this.formData);
     },
   },
 };
