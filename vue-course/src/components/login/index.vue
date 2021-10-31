@@ -1,5 +1,5 @@
 <template>
-  <Form @submit.prevent="handleSubmit">
+  <Form ref="form" @submit.prevent="handleSubmit">
     <CustomInput v-model="formData.email" name="email" :rules="emailRules" />
     <CustomInput
       v-model="formData.password"
@@ -46,7 +46,11 @@ export default {
   },
   methods: {
     handleSubmit() {
-      console.log(this.formData);
+      const isFormValid = this.$refs.form.validate();
+
+      if (isFormValid) {
+        console.log(this.formData);
+      }
     },
   },
 };

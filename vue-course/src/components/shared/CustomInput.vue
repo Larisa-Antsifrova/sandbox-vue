@@ -51,16 +51,15 @@ export default {
     this.form.unregisterInput(this);
   },
   methods: {
-    validate(value) {
+    validate() {
       this.isValid = this.rules.every(rule => {
-        const { hasPassed, message } = rule(value);
-
+        const { hasPassed, message } = rule(this.value);
         if (!hasPassed) {
           this.error = message || this.errorMessage;
         }
-
         return hasPassed;
       });
+      return this.isValid;
     },
     reset() {
       this.$emit('input', '');
