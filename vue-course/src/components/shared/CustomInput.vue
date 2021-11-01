@@ -39,7 +39,11 @@ export default {
       };
     },
   },
-  inject: ['form'],
+  inject: {
+    form: {
+      default: null,
+    },
+  },
   mounted() {
     if (!this.form) return;
 
