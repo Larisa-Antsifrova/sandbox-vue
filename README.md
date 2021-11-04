@@ -8,6 +8,7 @@ The new marathon has just begun!
 - Dynamic routes
 - Component's lifecycle methods
 - Ajax requests
+- Forms: emit/ provide-inject/ slots
 
 ## NetNinja
 - In process
