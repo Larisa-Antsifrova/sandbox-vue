@@ -12,3 +12,6 @@ The new marathon has just begun!
 
 ## NetNinja
 - In process
+
+## Vue & TypeScript
+- In progress 
