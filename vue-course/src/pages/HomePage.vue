@@ -1,23 +1,25 @@
 <template>
   <main class="home-page">
-    <Container>
-      <ApartmentFilterForm @submit="filter" class="filter-form" />
+    <SectionWithHeaderSpacer>
+      <Container>
+        <ApartmentFilterForm @submit="filter" class="filter-form" />
 
-      <p v-if="!filteredApartments.length">Nothing found...</p>
+        <p v-if="!filteredApartments.length">Nothing found...</p>
 
-      <ApartmentsList v-else :items="filteredApartments">
-        <template v-slot:apartment="{ apartment }">
-          <ApartmentItem
-            :key="apartment.id"
-            :id="apartment.id"
-            :description="apartment.descr"
-            :rating="apartment.rating"
-            :imgSrc="apartment.imgUrl"
-            :price="apartment.price"
-          />
-        </template>
-      </ApartmentsList>
-    </Container>
+        <ApartmentsList v-else :items="filteredApartments">
+          <template v-slot:apartment="{ apartment }">
+            <ApartmentItem
+              :key="apartment.id"
+              :id="apartment.id"
+              :description="apartment.descr"
+              :rating="apartment.rating"
+              :imgSrc="apartment.imgUrl"
+              :price="apartment.price"
+            />
+          </template>
+        </ApartmentsList>
+      </Container>
+    </SectionWithHeaderSpacer>
   </main>
 </template>
 
@@ -26,6 +28,7 @@ import ApartmentFilterForm from '../components/apartment/ApartmentFilterForm.vue
 import ApartmentsList from '../components/apartment/ApartmentsList.vue';
 import ApartmentItem from '../components/apartment/ApartmentItem.vue';
 import Container from '../components/shared/Container.vue';
+import SectionWithHeaderSpacer from '../components/shared/SectionWithHeaderSpacer.vue';
 
 import { getApartmentsList } from '../services/apartments-service';
 
@@ -36,6 +39,7 @@ export default {
     ApartmentsList,
     ApartmentItem,
     Container,
+    SectionWithHeaderSpacer,
   },
   async created() {
     try {
