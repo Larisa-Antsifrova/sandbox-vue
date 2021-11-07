@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import LoginForm from '../components/login';
+import LoginForm from '../components/auth/login';
 import AuthSection from '../components/auth/AuthSection.vue';
 
 export default {
