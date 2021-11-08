@@ -1,6 +1,6 @@
 <template>
   <AuthContainer>
-    <h2>Log in</h2>
+    <MainTitle>Log in</MainTitle>
     <Form ref="form" @submit.prevent="handleSubmit">
       <CustomInput v-model="formData.email" name="email" :rules="emailRules" />
       <CustomInput
@@ -19,6 +19,7 @@ import AuthContainer from '../AuthContainer.vue';
 import Form from '../../shared/form';
 import CustomInput from '../../shared/CustomInput.vue';
 import Button from '../../Button.vue';
+import MainTitle from '../../shared/MainTitle.vue';
 
 import {
   emailValidation,
@@ -28,7 +29,7 @@ import {
 
 export default {
   name: 'Login',
-  components: { AuthContainer, Form, CustomInput, Button },
+  components: { AuthContainer, Form, CustomInput, Button, MainTitle },
   data() {
     return {
       formData: {
