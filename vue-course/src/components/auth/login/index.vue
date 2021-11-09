@@ -1,15 +1,23 @@
 <template>
-  <AuthContainer>
-    <MainTitle>Log in</MainTitle>
-    <Form ref="form" @submit.prevent="handleSubmit">
-      <CustomInput v-model="formData.email" name="email" :rules="emailRules" />
+  <AuthContainer class="login">
+    <MainTitle class="login__title">Log in</MainTitle>
+    <Form class="login__form" ref="form" @submit.prevent="handleSubmit">
       <CustomInput
+        placeholder="Email"
+        v-model="formData.email"
+        name="email"
+        :rules="emailRules"
+        class="login__input"
+      />
+      <CustomInput
+        placeholder="Password"
         v-model="formData.password"
         name="password"
         type="password"
         :rules="passwordRules"
+        class="login__input"
       />
-      <Button type="submit">Enter</Button>
+      <Button type="submit" class="login__button">Log in</Button>
     </Form>
   </AuthContainer>
 </template>
@@ -61,4 +69,22 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.login {
+  &__form {
+    display: block;
+    flex-direction: column;
+  }
+  &__title {
+    text-align: center;
+  }
+  &__input {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  &__button {
+    margin-top: 15px;
+    width: 100%;
+  }
+}
+</style>

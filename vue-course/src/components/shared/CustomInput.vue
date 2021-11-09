@@ -88,6 +88,7 @@ export default {
 
 .custom-input {
   height: 40px;
+  width: 100%;
   border: 2px solid $main-color;
   font-size: 18px;
   outline: none;
