@@ -34,6 +34,7 @@ import {
   passwordValidation,
   isRequired,
 } from '../../../utils/validationRules';
+import { loginUser } from '../../../services/auth-service';
 
 export default {
   name: 'Login',
@@ -54,15 +55,20 @@ export default {
       return [this.rules.isRequired, this.rules.emailValidation];
     },
     passwordRules() {
-      return [this.rules.isRequired, this.rules.passwordValidation];
+      return [this.rules.isRequired];
     },
   },
   methods: {
-    handleSubmit() {
-      const isFormValid = this.$refs.form.validate();
+    async handleSubmit() {
+      try {
+        const isFormValid = this.$refs.form.validate();
 
-      if (isFormValid) {
-        console.log(this.formData);
+        if (isFormValid) {
+          const { data } = await loginUser(this.formData);
+          console.log(data);
+        }
+      } catch (error) {
+        console.log('Error in handleSubmit', error.message);
       }
     },
   },

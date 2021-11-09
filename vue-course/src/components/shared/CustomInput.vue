@@ -72,7 +72,6 @@ export default {
   watch: {
     value(value) {
       this.validate(value);
-      console.log('value', value);
     },
   },
 };
