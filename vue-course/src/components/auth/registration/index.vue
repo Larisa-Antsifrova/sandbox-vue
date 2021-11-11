@@ -56,7 +56,13 @@ export default {
       return [this.rules.isRequired, this.rules.emailValidation];
     },
     passwordRules() {
-      return [this.rules.isRequired];
+      return [this.rules.isRequired, this.rules.passwordValidation];
+    },
+    passwordConfirmation() {
+      return value => ({
+        hasPassed: value === this.formData.password,
+        message: 'Passwords do not match',
+      });
     },
   },
   methods: {
