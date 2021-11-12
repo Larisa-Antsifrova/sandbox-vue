@@ -4,6 +4,7 @@
       v-on="listeners"
       v-bind="$attrs"
       class="custom-input"
+      :value="value"
       :class="!isValid && 'custom-input--error'"
     />
     <span v-if="!isValid" class="custom-input__error">{{ error }}</span>
@@ -18,6 +19,7 @@ export default {
     return {
       isValid: true,
       error: '',
+      isFirstInput: true,
     };
   },
   props: {

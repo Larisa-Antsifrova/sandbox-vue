@@ -3,6 +3,12 @@
     <MainTitle class="registration__title">Register</MainTitle>
     <Form class="registration__form" ref="form" @submit.prevent="handleSubmit">
       <CustomInput
+        placeholder="Name"
+        v-model="formData.name"
+        name="name"
+        class="registration__input"
+      />
+      <CustomInput
         placeholder="Email"
         v-model="formData.email"
         name="email"
@@ -15,6 +21,14 @@
         name="password"
         type="password"
         :rules="passwordRules"
+        class="registration__input"
+      />
+      <CustomInput
+        placeholder="Confirm password"
+        v-model="formData.confirmPassword"
+        name="confirmPassword"
+        type="password"
+        :rules="passwordConfirmation"
         class="registration__input"
       />
       <Button type="submit" class="registration__button">Register</Button>
@@ -34,7 +48,7 @@ import {
   passwordValidation,
   isRequired,
 } from '../../../utils/validationRules';
-import { loginUser } from '../../../services/auth-service';
+import { registerUser } from '../../../services/auth-service';
 
 export default {
   name: 'Registration',
@@ -45,12 +59,16 @@ export default {
         name: '',
         email: '',
         password: '',
+        confirmPassword: '',
       },
     };
   },
   computed: {
     rules() {
       return { emailValidation, passwordValidation, isRequired };
+    },
+    nameRules() {
+      return [this.rules.isRequired];
     },
     emailRules() {
       return [this.rules.isRequired, this.rules.emailValidation];
@@ -59,20 +77,24 @@ export default {
       return [this.rules.isRequired, this.rules.passwordValidation];
     },
     passwordConfirmation() {
-      return value => ({
-        hasPassed: value === this.formData.password,
-        message: 'Passwords do not match',
-      });
+      return [
+        value => ({
+          hasPassed: value === this.formData.password,
+          message: 'Passwords do not match',
+        }),
+      ];
     },
   },
   methods: {
     async handleSubmit() {
       try {
-        const isFormValid = this.$refs.form.validate();
+        const { form } = this.$refs;
+        const isFormValid = form.validate();
+        const { name, password, email } = this.formData;
 
         if (isFormValid) {
-          const { data } = await loginUser(this.formData);
-          console.log(data);
+          await registerUser({ name, password, email });
+          form.reset();
         }
       } catch (error) {
         console.log('Error in handleSubmit', error.message);
