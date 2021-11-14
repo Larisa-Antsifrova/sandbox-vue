@@ -4,6 +4,7 @@
       v-on="listeners"
       v-bind="$attrs"
       class="custom-input"
+      @blur="blurHandler"
       :value="value"
       :class="!isValid && 'custom-input--error'"
     />
@@ -57,6 +58,13 @@ export default {
     this.form.unregisterInput(this);
   },
   methods: {
+    blurHandler() {
+      if (this.isFirstInput) {
+        this.validate();
+      }
+
+      this.isFirstInput = false;
+    },
     validate() {
       this.isValid = this.rules.every(rule => {
         const { hasPassed, message } = rule(this.value);
@@ -68,11 +76,15 @@ export default {
       return this.isValid;
     },
     reset() {
+      this.isFirstInput = true;
+      this.isValid = true;
       this.$emit('input', '');
     },
   },
   watch: {
     value(value) {
+      if (this.isFirstInput) return;
+
       this.validate(value);
     },
   },
