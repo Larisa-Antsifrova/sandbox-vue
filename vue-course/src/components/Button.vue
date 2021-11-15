@@ -4,13 +4,17 @@
     v-bind:type="type"
     :class="{ btn: true, 'btn--outlined': outlined }"
   >
+    <CircleLoader :width="40" :height="40" />
     <slot></slot>
   </button>
 </template>
 
 <script>
+import CircleLoader from './loaders/Circle.vue';
+
 export default {
   name: 'Button',
+  components: { CircleLoader },
   props: {
     type: { type: String, default: 'button' },
     outlined: { type: Boolean, default: false },
