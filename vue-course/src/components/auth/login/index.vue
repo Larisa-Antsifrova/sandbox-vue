@@ -17,7 +17,9 @@
         :rules="passwordRules"
         class="login__input"
       />
-      <Button type="submit" class="login__button">Log in</Button>
+      <Button type="submit" class="login__button" :loading="loading"
+        >Log in</Button
+      >
     </Form>
   </AuthContainer>
 </template>
@@ -41,6 +43,7 @@ export default {
   components: { AuthContainer, Form, CustomInput, Button, MainTitle },
   data() {
     return {
+      loading: false,
       formData: {
         email: '',
         password: '',
@@ -61,6 +64,8 @@ export default {
   methods: {
     async handleSubmit() {
       try {
+        this.loading = true;
+
         const isFormValid = this.$refs.form.validate();
 
         if (isFormValid) {
@@ -69,6 +74,8 @@ export default {
         }
       } catch (error) {
         console.log('Error in handleSubmit', error.message);
+      } finally {
+        this.loading = false;
       }
     },
   },

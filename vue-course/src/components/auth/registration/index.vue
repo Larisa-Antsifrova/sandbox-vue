@@ -31,7 +31,9 @@
         :rules="passwordConfirmation"
         class="registration__input"
       />
-      <Button type="submit" class="registration__button">Register</Button>
+      <Button type="submit" class="registration__button" :loading="loading"
+        >Register</Button
+      >
     </Form>
   </AuthContainer>
 </template>
@@ -55,6 +57,7 @@ export default {
   components: { AuthContainer, Form, CustomInput, Button, MainTitle },
   data() {
     return {
+      loading: false,
       formData: {
         name: '',
         email: '',
@@ -88,6 +91,8 @@ export default {
   methods: {
     async handleSubmit() {
       try {
+        this.loading = true;
+
         const { form } = this.$refs;
         const isFormValid = form.validate();
         const { name, password, email } = this.formData;
@@ -98,6 +103,8 @@ export default {
         }
       } catch (error) {
         console.log('Error in handleSubmit', error.message);
+      } finally {
+        this.loading = false;
       }
     },
   },
