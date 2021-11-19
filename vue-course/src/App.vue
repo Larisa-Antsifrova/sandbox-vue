@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <notifications />
     <div class="content">
       <Header />
       <router-view></router-view>
@@ -18,6 +19,12 @@ export default {
   components: {
     Footer,
     Header,
+  },
+  mounted() {
+    this.$notify({
+      title: 'Important message',
+      text: 'Hello user! This is a notification!',
+    });
   },
 };
 </script>

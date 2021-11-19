@@ -4,9 +4,11 @@ import VueRouter from 'vue-router';
 import App from './App.vue';
 import router from './router';
 import './assets/scss/index.scss';
+import Notifications from 'vue-notification';
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
+Vue.use(Notifications);
 
 new Vue({
   render: h => h(App),
