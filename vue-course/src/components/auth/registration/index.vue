@@ -102,7 +102,11 @@ export default {
           form.reset();
         }
       } catch (error) {
-        console.log('Error in handleSubmit', error.message);
+        this.$notify({
+          type: 'error',
+          title: 'Oops!',
+          text: error.message,
+        });
       } finally {
         this.loading = false;
       }
