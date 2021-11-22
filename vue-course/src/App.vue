@@ -23,6 +23,9 @@ export default {
     Header,
     Notification,
   },
+  mounted() {
+    console.log('store', this.$store.state.userName);
+  },
 };
 </script>
 
