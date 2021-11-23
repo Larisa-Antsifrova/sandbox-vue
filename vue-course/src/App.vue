@@ -8,7 +8,6 @@
       <router-view></router-view>
     </div>
     <Footer />
-    <p>{{ $store.state.userName }}</p>
   </div>
 </template>
 
