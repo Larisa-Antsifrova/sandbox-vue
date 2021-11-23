@@ -4,10 +4,11 @@
 
     <div class="content">
       <Header />
+
       <router-view></router-view>
     </div>
-
     <Footer />
+    <p>{{ $store.state.userName }}</p>
   </div>
 </template>
 
@@ -25,6 +26,9 @@ export default {
   },
   mounted() {
     console.log('store', this.$store.state.userName);
+    setTimeout(() => {
+      this.$store.commit('changeName', 'Hello');
+    }, 1000);
   },
 };
 </script>

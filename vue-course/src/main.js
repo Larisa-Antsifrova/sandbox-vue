@@ -14,7 +14,7 @@ Vue.use(Notifications);
 
 const store = new Vuex.Store({
   state: {
-    userName: '',
+    userName: 'new name',
   },
   mutations: {
     changeName(state, newName) {
