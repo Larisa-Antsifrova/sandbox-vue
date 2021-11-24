@@ -3,13 +3,21 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
+const initialState = {
+  user: null,
+  token: '',
+};
+
 const store = new Vuex.Store({
   state: {
-    userName: 'new name',
+    ...initialState,
   },
   mutations: {
-    changeName(state, newName) {
-      state.userName = newName;
+    setUser(state, user) {
+      state.user = user;
+    },
+    setToken(state, token) {
+      state.token = token;
     },
   },
 });

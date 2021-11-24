@@ -23,12 +23,6 @@ export default {
     Header,
     Notification,
   },
-  mounted() {
-    console.log('store', this.$store.state.userName);
-    setTimeout(() => {
-      this.$store.commit('changeName', 'Hello');
-    }, 1000);
-  },
 };
 </script>
 
