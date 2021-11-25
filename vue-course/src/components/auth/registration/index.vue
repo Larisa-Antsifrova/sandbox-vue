@@ -98,7 +98,14 @@ export default {
         const { name, password, email } = this.formData;
 
         if (isFormValid) {
-          await registerUser({ name, password, email });
+          const { data } = await registerUser({ name, password, email });
+
+          const { user, token } = data;
+          this.$store.commit('setUser', user);
+          this.$store.commit('setToken', token);
+
+          this.$router.push({ name: 'home' });
+
           form.reset();
         }
       } catch (error) {

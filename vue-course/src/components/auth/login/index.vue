@@ -70,7 +70,12 @@ export default {
 
         if (isFormValid) {
           const { data } = await loginUser(this.formData);
-          console.log(data);
+
+          const { user, token } = data;
+          this.$store.commit('setUser', user);
+          this.$store.commit('setToken', token);
+
+          this.$router.push({ name: 'home' });
         }
       } catch (error) {
         this.$notify({
