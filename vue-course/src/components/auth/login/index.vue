@@ -30,6 +30,7 @@ import Form from '../../shared/form';
 import CustomInput from '../../shared/CustomInput.vue';
 import Button from '../../Button.vue';
 import MainTitle from '../../shared/MainTitle.vue';
+import { mapActions } from 'vuex';
 
 import {
   emailValidation,
@@ -61,6 +62,7 @@ export default {
     },
   },
   methods: {
+    ...mapActions('auth', ['loginUser']),
     async handleSubmit() {
       try {
         this.loading = true;
@@ -68,7 +70,7 @@ export default {
         const isFormValid = this.$refs.form.validate();
 
         if (isFormValid) {
-          this.$store.dispatch('auth/login', this.formData);
+          this.loginUser(this.formData);
 
           this.$router.push({ name: 'home' });
         }

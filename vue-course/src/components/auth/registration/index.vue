@@ -44,6 +44,7 @@ import Form from '../../shared/form';
 import CustomInput from '../../shared/CustomInput.vue';
 import Button from '../../Button.vue';
 import MainTitle from '../../shared/MainTitle.vue';
+import { mapActions } from 'vuex';
 
 import {
   emailValidation,
@@ -88,6 +89,7 @@ export default {
     },
   },
   methods: {
+    ...mapActions('auth', ['registerUser']),
     async handleSubmit() {
       try {
         this.loading = true;
@@ -96,7 +98,7 @@ export default {
         const isFormValid = form.validate();
 
         if (isFormValid) {
-          this.$store.dispatch('auth/registration', this.formData);
+          this.registerUser(this.formData);
 
           this.$router.push({ name: 'home' });
 

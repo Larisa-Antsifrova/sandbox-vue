@@ -19,14 +19,14 @@ export default {
     },
   },
   actions: {
-    async login({ commit }, payload) {
+    async loginUser({ commit }, payload) {
       const { data } = await loginUser(payload);
       const { user, token } = data;
 
       commit('setUser', user);
       commit('setToken', token);
     },
-    async registration({ commit }, payload) {
+    async registerUser({ commit }, payload) {
       const { data } = await registerUser(payload);
       const { user, token } = data;
 
