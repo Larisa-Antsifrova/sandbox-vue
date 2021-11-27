@@ -68,7 +68,7 @@ export default {
         const isFormValid = this.$refs.form.validate();
 
         if (isFormValid) {
-          this.$store.dispatch('login', this.formData);
+          this.$store.dispatch('auth/login', this.formData);
 
           this.$router.push({ name: 'home' });
         }

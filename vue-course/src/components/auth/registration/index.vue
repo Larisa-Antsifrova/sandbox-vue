@@ -96,7 +96,7 @@ export default {
         const isFormValid = form.validate();
 
         if (isFormValid) {
-          this.$store.dispatch('registration', this.formData);
+          this.$store.dispatch('auth/registration', this.formData);
 
           this.$router.push({ name: 'home' });
 
