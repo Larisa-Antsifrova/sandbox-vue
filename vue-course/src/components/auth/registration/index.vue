@@ -50,7 +50,6 @@ import {
   passwordValidation,
   isRequired,
 } from '../../../utils/validationRules';
-import { registerUser } from '../../../services/auth-service';
 
 export default {
   name: 'Registration',
@@ -95,14 +94,9 @@ export default {
 
         const { form } = this.$refs;
         const isFormValid = form.validate();
-        const { name, password, email } = this.formData;
 
         if (isFormValid) {
-          const { data } = await registerUser({ name, password, email });
-
-          const { user, token } = data;
-          this.$store.commit('setUser', user);
-          this.$store.commit('setToken', token);
+          this.$store.dispatch('registration', this.formData);
 
           this.$router.push({ name: 'home' });
 
