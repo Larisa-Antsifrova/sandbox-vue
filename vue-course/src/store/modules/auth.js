@@ -10,6 +10,11 @@ export default {
   state: {
     ...initialState,
   },
+  getters: {
+    isLoggedIn(state) {
+      return Boolean(state.token);
+    },
+  },
   mutations: {
     setUser(state, user) {
       state.user = user;
