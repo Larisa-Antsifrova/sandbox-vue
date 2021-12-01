@@ -13,7 +13,7 @@
 
 <script>
 import Footer from './components/Footer.vue';
-import Header from './components/Header.vue';
+import Header from './components/header/Header.vue';
 import Notification from './components/notifications';
 import { mapGetters } from 'vuex';
 
