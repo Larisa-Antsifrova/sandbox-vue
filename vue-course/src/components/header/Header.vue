@@ -7,6 +7,7 @@
         </router-link>
 
         <AuthActions />
+        <AccountActions />
       </div>
     </Container>
   </header>
@@ -16,10 +17,11 @@
 import Container from '../shared/Container.vue';
 import Logo from '../Logo.vue';
 import AuthActions from './AuthActions.vue';
+import AccountActions from './AccountActions.vue';
 
 export default {
   name: 'Header',
-  components: { Container, Logo, AuthActions },
+  components: { Container, Logo, AuthActions, AccountActions },
 };
 </script>
 
