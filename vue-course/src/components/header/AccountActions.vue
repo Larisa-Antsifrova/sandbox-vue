@@ -1,6 +1,6 @@
 <template>
-  <div class="account-actions">
-    <button class="account-actions__button">
+  <div class="account-actions" @mouseover="open" @mouseleave="close">
+    <button class="account-actions__button" @click="toggle">
       <span class="account-actions__text">Profile</span>
       <svg
         class="account-actions__icon"
@@ -18,7 +18,7 @@
       </svg>
     </button>
 
-    <ul class="account-actions__list">
+    <ul v-show="isOpen" class="account-actions__list">
       <li class="account-actions__item">
         <router-link class="account-actions__link" :to="{ name: 'my-orders' }"
           >My orders</router-link
