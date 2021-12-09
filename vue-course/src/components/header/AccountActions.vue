@@ -25,13 +25,17 @@
         >
       </li>
       <li class="account-actions__item">
-        <button class="account-actions__logout">Log out</button>
+        <button class="account-actions__logout" @click="handleLogout">
+          Log out
+        </button>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: 'AccountActions',
   data() {
@@ -40,6 +44,7 @@ export default {
     };
   },
   methods: {
+    ...mapActions('auth', ['logoutUser']),
     open() {
       this.isOpen = true;
     },
@@ -48,6 +53,13 @@ export default {
     },
     toggle() {
       this.isOpen = !this.isOpen;
+    },
+    async handleLogout() {
+      try {
+        await this.logoutUser();
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 };
