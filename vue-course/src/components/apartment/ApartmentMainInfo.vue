@@ -1,20 +1,25 @@
 <template>
   <article class="apartment-main-info">
     <div class="apartment-main-info__heading">
-      <h1 class="partment-main-info__title">{{ apartment.title }}</h1>
+      <h1 class="apartment-main-info__title">{{ apartment.title }}</h1>
       <Rating :rating="apartment.rating" />
     </div>
     <img :src="apartment.imgUrl" alt="" class="partment-main-info__photo" />
-    <p class="partment-main-info__description">{{ apartment.descr }}</p>
+    <p class="apartment-main-info__description">{{ apartment.descr }}</p>
+
+    <div class="apartment-main-info__btn">
+      <Button>Book</Button>
+    </div>
   </article>
 </template>
 
 <script>
 import Rating from '../StarRating.vue';
+import Button from '../Button.vue';
 
 export default {
   name: 'ApartmentMainInfo',
-  components: { Rating },
+  components: { Rating, Button },
   props: {
     apartment: {
       type: Object,
@@ -44,8 +49,10 @@ export default {
     margin-top: 30px;
   }
   &__btn {
+    max-width: 150px;
     margin-top: 20px;
     text-align: center;
+    margin: 0 auto;
   }
 }
 </style>

@@ -48,6 +48,14 @@ export default {
   border: 1px solid transparent;
 
   cursor: pointer;
+  transition: background-color 0.4s, color 0.4s;
+  font-family: Montserrat, sans-serif;
+
+  &:hover {
+    background-color: #fff;
+    color: #ff6620;
+    border: 1px solid #ff6620;
+  }
 
   &--outlined {
     color: #ff6620;
