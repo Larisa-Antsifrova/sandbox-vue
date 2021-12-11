@@ -8,7 +8,7 @@
     <p class="apartment-main-info__description">{{ apartment.descr }}</p>
 
     <div class="apartment-main-info__btn">
-      <Button>Book</Button>
+      <Button @click="bookApartment">Book</Button>
     </div>
   </article>
 </template>
@@ -16,6 +16,7 @@
 <script>
 import Rating from '../StarRating.vue';
 import Button from '../Button.vue';
+import { bookApartment } from '../../services/order-service';
 
 export default {
   name: 'ApartmentMainInfo',
@@ -24,6 +25,29 @@ export default {
     apartment: {
       type: Object,
       required: true,
+    },
+  },
+  methods: {
+    async bookApartment() {
+      const body = {
+        date: Date.now(),
+        apartmentId: this.$route.params.id,
+      };
+
+      try {
+        await bookApartment(body);
+
+        this.$notify({
+          type: 'success',
+          title: 'Booking successful!',
+        });
+      } catch (error) {
+        this.$notify({
+          type: 'error',
+          title: 'Oops! Something went wrong.',
+          text: error.message,
+        });
+      }
     },
   },
 };
