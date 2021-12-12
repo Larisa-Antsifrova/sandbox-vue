@@ -8,7 +8,7 @@
     <p class="apartment-main-info__description">{{ apartment.descr }}</p>
 
     <div class="apartment-main-info__btn">
-      <Button @click="bookApartment">Book</Button>
+      <Button @click="bookApartment" :loading="isLoading">Book</Button>
     </div>
   </article>
 </template>
@@ -27,6 +27,11 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      isLoading: false,
+    };
+  },
   methods: {
     async bookApartment() {
       const body = {
@@ -35,6 +40,7 @@ export default {
       };
 
       try {
+        this.isLoading = true;
         await bookApartment(body);
 
         this.$notify({
@@ -47,6 +53,8 @@ export default {
           title: 'Oops! Something went wrong.',
           text: error.message,
         });
+      } finally {
+        this.isLoading = false;
       }
     },
   },
