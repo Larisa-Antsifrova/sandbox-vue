@@ -3,7 +3,7 @@
     <SectionWithHeaderSpacer>
       <Container>
         <section class="my-orders-page__content">
-          <h2>Orders</h2>
+          <MainTitle>Orders</MainTitle>
         </section>
       </Container>
     </SectionWithHeaderSpacer>
@@ -13,11 +13,14 @@
 <script>
 import SectionWithHeaderSpacer from '../components/shared/SectionWithHeaderSpacer.vue';
 import Container from '../components/shared/Container.vue';
+import MainTitle from '../components/shared/MainTitle.vue';
+
 export default {
   name: 'MyOrdersPage',
   components: {
     SectionWithHeaderSpacer,
     Container,
+    MainTitle,
   },
 };
 </script>
