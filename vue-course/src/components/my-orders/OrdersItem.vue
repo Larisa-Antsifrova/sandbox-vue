@@ -26,4 +26,37 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.orders-item {
+  display: flex;
+  margin-bottom: 20px;
+
+  &__title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  &__photo {
+    display: block;
+    width: 45%;
+    height: 190px;
+    object-fit: cover;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 55%;
+    padding: 20px;
+    border: 2px solid #e1efff;
+    border-left: none;
+  }
+
+  &__price {
+    font-size: 20px;
+    font-weight: 700;
+  }
+}
+</style>
