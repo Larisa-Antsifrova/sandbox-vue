@@ -11,7 +11,7 @@ const routes = [
   { path: '/apartments/:id', component: ApartmentPage, name: 'apartment' },
   { path: '/login', component: LoginPage, name: 'login-page' },
   { path: '/register', component: RegistrationPage, name: 'register-page' },
-  { path: '/my-orders', component: MyOrdersPage, name: 'orders-page' },
+  { path: '/my-orders', component: MyOrdersPage, name: 'my-orders' },
   { path: '*', component: ErrorPage, name: 'error-page' },
 ];
 
