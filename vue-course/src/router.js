@@ -8,10 +8,38 @@ import ErrorPage from './pages/ErrorPage.vue';
 
 const routes = [
   { path: '/', component: HomePage, name: 'home' },
-  { path: '/apartments/:id', component: ApartmentPage, name: 'apartment' },
-  { path: '/login', component: LoginPage, name: 'login-page' },
-  { path: '/register', component: RegistrationPage, name: 'register-page' },
-  { path: '/my-orders', component: MyOrdersPage, name: 'my-orders' },
+  {
+    path: '/apartments/:id',
+    component: ApartmentPage,
+    name: 'apartment',
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: '/login',
+    component: LoginPage,
+    name: 'login-page',
+    meta: {
+      hideForAuth: true,
+    },
+  },
+  {
+    path: '/register',
+    component: RegistrationPage,
+    name: 'register-page',
+    meta: {
+      hideForAuth: true,
+    },
+  },
+  {
+    path: '/my-orders',
+    component: MyOrdersPage,
+    name: 'my-orders',
+    meta: {
+      requiresAuth: true,
+    },
+  },
   { path: '*', component: ErrorPage, name: 'error-page' },
 ];
 
