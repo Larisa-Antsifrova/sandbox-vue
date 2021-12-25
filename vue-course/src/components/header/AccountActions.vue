@@ -58,7 +58,11 @@ export default {
       try {
         await this.logoutUser();
       } catch (error) {
-        console.log(error);
+        this.$notify({
+          type: 'error',
+          title: 'Oops!',
+          text: error.message,
+        });
       }
     },
   },
