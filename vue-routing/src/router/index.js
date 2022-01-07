@@ -34,7 +34,7 @@ const routes = [
       import(/* webpackChunkName: "panama" */ '../views/Panama.vue'),
   },
   {
-    path: '/details',
+    path: '/details/:id',
     name: 'details',
     component: () =>
       import(
