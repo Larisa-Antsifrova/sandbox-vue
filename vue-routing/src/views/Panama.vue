@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'Panama',
+  name: "Panama",
 };
 </script>
 

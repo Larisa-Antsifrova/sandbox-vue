@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import store from '../store';
+import store from "../store";
 
 export default {
   data() {
@@ -25,7 +25,7 @@ export default {
   computed: {
     destination() {
       return store.destinations.find(
-        destination => destination.id === this.destinationId,
+        (destination) => destination.id === this.destinationId
       );
     },
   },

@@ -21,10 +21,10 @@
 </template>
 
 <script>
-import store from '@/store.js';
+import store from "@/store.js";
 
 export default {
-  name: 'TheNavigation',
+  name: "TheNavigation",
   data() {
     return {
       destinationId: this.$route.params.id,
