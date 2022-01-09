@@ -12,7 +12,9 @@
         :key="destination.name"
         class="links"
       >
-        <router-link :to="{ name: 'details', params: { id: destination.id } }">
+        <router-link
+          :to="{ name: 'details', params: { slug: destination.slug } }"
+        >
           {{ destination.name }}
         </router-link>
       </li>
@@ -27,7 +29,6 @@ export default {
   name: "TheNavigation",
   data() {
     return {
-      destinationId: this.$route.params.id,
       destinations: store.destinations,
     };
   },
