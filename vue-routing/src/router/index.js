@@ -20,6 +20,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
+  mode: "history",
   linkExactActiveClass: "navigation-test-active-class",
   routes,
 });
