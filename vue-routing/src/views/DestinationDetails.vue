@@ -1,16 +1,39 @@
 <template>
-  <section class="destination">
-    <h1>{{ destination.name }}</h1>
+  <div>
+    <section class="destination">
+      <h1>{{ destination.name }}</h1>
 
-    <div class="destination-details">
-      <img
-        :src="require(`@/assets/${destination.image}`)"
-        :alt="destination.name"
-      />
+      <div class="destination-details">
+        <img
+          :src="require(`@/assets/${destination.image}`)"
+          :alt="destination.name"
+        />
 
-      <p>{{ destination.description }}</p>
-    </div>
-  </section>
+        <p>{{ destination.description }}</p>
+      </div>
+    </section>
+
+    <section class="experiences">
+      <h2>Top experiences in {{ destination.name }}</h2>
+
+      <div class="cards">
+        <div
+          v-for="experience in destination.experiences"
+          class="card"
+          :key="experience.slug"
+        >
+          <img
+            :src="require(`@/assets/${experience.image}`)"
+            :alt="experience.name"
+          />
+
+          <span class="card__text">
+            {{ experience.name }}
+          </span>
+        </div>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script>
