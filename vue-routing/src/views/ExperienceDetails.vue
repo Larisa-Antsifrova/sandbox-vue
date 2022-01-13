@@ -15,7 +15,20 @@
 </template>
 
 <script>
-export default {};
+import store from "../store";
+
+export default {
+  props: {
+    slug: {
+      type: String,
+      required: true,
+    },
+    exprerienceSlug: {
+      type: String,
+      required: true,
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped></style>
