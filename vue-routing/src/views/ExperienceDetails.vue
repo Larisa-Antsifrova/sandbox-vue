@@ -28,7 +28,38 @@ export default {
       required: true,
     },
   },
+  computed: {
+    destination() {
+      return store.destinations.find(
+        destination => destination.slug === this.slug,
+      );
+    },
+    experience() {
+      return this.destination.experiences.find(
+        experience => experience.slug === this.exprerienceSlug,
+      );
+    },
+  },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+img {
+  max-width: 600px;
+  height: auto;
+  width: 100%;
+  max-height: 400px;
+}
+
+.experience-details {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0;
+}
+
+p {
+  margin: 0 40px;
+  font-size: 20px;
+  text-align: left;
+}
+</style>
