@@ -22,16 +22,27 @@
           class="card"
           :key="experience.slug"
         >
-          <img
-            :src="require(`@/assets/${experience.image}`)"
-            :alt="experience.name"
-          />
+          <router-link
+            :to="{
+              name: 'experienceDetails',
+              params: {
+                experienceSlug: experience.slug,
+              },
+            }"
+          >
+            <img
+              :src="require(`@/assets/${experience.image}`)"
+              :alt="experience.name"
+            />
 
-          <span class="card__text">
-            {{ experience.name }}
-          </span>
+            <span class="card__text">
+              {{ experience.name }}
+            </span>
+          </router-link>
         </div>
       </div>
+
+      <router-view :key="$route.path" />
     </section>
   </div>
 </template>

@@ -5,7 +5,7 @@
 
     <div class="experience-details">
       <img
-        :src="`require(@/assets/${experience.image})`"
+        :src="require(`@/assets/${experience.image}`)"
         :alt="experience.name"
       />
 
@@ -23,7 +23,7 @@ export default {
       type: String,
       required: true,
     },
-    exprerienceSlug: {
+    experienceSlug: {
       type: String,
       required: true,
     },
@@ -36,14 +36,14 @@ export default {
     },
     experience() {
       return this.destination.experiences.find(
-        experience => experience.slug === this.exprerienceSlug,
+        experience => experience.slug === this.experienceSlug,
       );
     },
   },
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 img {
   max-width: 600px;
   height: auto;
