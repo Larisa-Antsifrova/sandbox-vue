@@ -6,12 +6,12 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "Home",
+    name: "home",
     props: true,
     component: () => import(/* webpackChunkName: "home" */ "../views/Home.vue"),
   },
   {
-    path: "/details/:slug",
+    path: "/destination/:slug",
     name: "details",
     // When props is set to true, the route.params will be set as the component props.
     props: true,

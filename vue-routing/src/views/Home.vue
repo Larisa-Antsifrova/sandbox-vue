@@ -29,7 +29,7 @@
 import store from "@/store.js";
 
 export default {
-  name: "Home",
+  name: "home",
   data() {
     return {
       destinations: store.destinations,
