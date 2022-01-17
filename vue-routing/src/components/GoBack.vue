@@ -1,7 +1,7 @@
 <template>
-  <span class="go-back">
-    <button @click="goBack">Go back</button>
-  </span>
+  <div class="go-back">
+    <button @click="goBack" class="go-back__btn">Go back</button>
+  </div>
 </template>
 
 <script>
@@ -16,11 +16,13 @@ export default {
 
 <style scoped>
 .go-back {
-  display: flex;
-  cursor: pointer;
+  text-align: left;
 }
 
-button {
+.go-back__btn {
+  padding: 8px;
+  cursor: pointer;
   border: 0;
+  border-radius: 4px;
 }
 </style>
