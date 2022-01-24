@@ -12,6 +12,14 @@ const routes = [
     component: () => import(/* webpackChunkName: "home" */ "../views/Home.vue"),
   },
   {
+    path: "/user",
+    name: "user",
+    component: () => import(/* webpackChunkName: "user" */ "../views/User.vue"),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
     path: "/destination/:slug",
     name: "details",
     // When props is set to true, the route.params will be set as the component props.
@@ -76,6 +84,14 @@ const router = new VueRouter({
     }
   },
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.requiresAuth) {
+    //
+  } else {
+    next();
+  }
 });
 
 export default router;
