@@ -20,6 +20,12 @@ const routes = [
     },
   },
   {
+    path: "/login",
+    name: "login",
+    component: () =>
+      import(/* webpackChunkName: "login" */ "../views/Login.vue"),
+  },
+  {
     path: "/destination/:slug",
     name: "details",
     // When props is set to true, the route.params will be set as the component props.
@@ -88,7 +94,11 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth) {
-    //
+    if (!store.user) {
+      next({ name: "login" });
+    } else {
+      next();
+    }
   } else {
     next();
   }
