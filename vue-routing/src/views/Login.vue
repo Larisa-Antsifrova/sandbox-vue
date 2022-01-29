@@ -29,6 +29,7 @@ export default {
       store.user = this.username;
 
       const redirectPath = this.$route.query.redirect || "/";
+      console.log(this.$route.query.redirect, "here");
 
       this.$router.push(redirectPath);
     },
