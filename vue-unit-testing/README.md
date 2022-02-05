@@ -1,29 +1,33 @@
-# vue-unit-testing
+# Unit Testing
 
-## Project setup
-```
-npm install
-```
+## Steps
 
-### Compiles and hot-reloads for development
+1. Create a test suite
+
 ```
-npm run serve
+describe(...)
 ```
 
-### Compiles and minifies for production
+2. Set up the tests
+
 ```
-npm run build
+test(...)
 ```
 
-### Run your unit tests
+3. Mount the component with vue-test-utils
+
 ```
-npm run test:unit
+mount(...)
 ```
 
-### Lints and fixes files
+4. Set data, if necessary
+
 ```
-npm run lint
+setData(...)
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+5. Asert what the result should be
+
+```
+expect(...)
+```
