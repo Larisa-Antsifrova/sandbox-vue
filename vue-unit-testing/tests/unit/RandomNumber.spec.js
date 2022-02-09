@@ -3,7 +3,9 @@ import { mount } from "@vue/test-utils";
 
 describe("RandomNumber", () => {
   test("By default, random number should be 0", () => {
-    expect(true).toBe(false);
+    const wrapper = mount(RandomNumber);
+
+    expect(wrapper.html()).toContain("<span>0</span>");
   });
 
   test("If button is clicked, the random number should be between 1 and 10", () => {
