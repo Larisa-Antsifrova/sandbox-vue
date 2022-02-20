@@ -5,6 +5,10 @@ import flushPromises from "flush-promises";
 
 jest.mock("@/services/axios");
 
+beforeEach(() => {
+  jest.clearAllMocks();
+});
+
 describe("MessageDisplay", () => {
   test("Calls getMessage and displays message", async () => {
     const mockMessage = "Hello from the db!";
@@ -21,6 +25,16 @@ describe("MessageDisplay", () => {
   });
 
   test("Displays an error when getMessage call fails", async () => {
-    // test goes here
+    const mockError = "Oops! Something went wrong.";
+    getMessage.mockRejectedValueOnce(mockError);
+    const wrapper = mount(MessageDisplay);
+
+    await flushPromises();
+
+    expect(getMessage).toHaveBeenCalledTimes(1);
+
+    const displayedError = wrapper.find('[data-testid="message-error"]').text();
+
+    expect(displayedError).toEqual(mockError);
   });
 });
