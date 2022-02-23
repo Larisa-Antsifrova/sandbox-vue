@@ -4,16 +4,14 @@ import { mount } from "@vue/test-utils";
 describe("LoginForm", () => {
   it("emits an event with user data payload", () => {
     const wrapper = mount(LoginForm);
-    const input = wrapper.find('input[type="text"]'); // Find text input
+    const input = wrapper.find('[data-testid="name-input"]');
 
-    input.setValue("Adam Jahr"); // Set value for text input
-    wrapper.trigger("submit"); // Simulate form submission
+    input.setValue("Adam Jahr");
+    wrapper.trigger("submit");
 
-    // Assert event has been emitted
     const formSubmittedCalls = wrapper.emitted("formSubmitted");
     expect(formSubmittedCalls).toHaveLength(1);
 
-    // Assert payload is correct
     const expectedPayload = { name: "Adam Jahr" };
     expect(wrapper.emitted("formSubmitted")[0][0]).toMatchObject(
       expectedPayload,
