@@ -31,3 +31,5 @@ setData(...)
 ```
 expect(...)
 ```
+
+## Components Testing by Vue Mastery
