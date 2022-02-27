@@ -12,5 +12,9 @@ describe("MessageContainer", () => {
         },
       },
     });
+
+    const message = wrapper.find('[data-testid="message"]').text();
+
+    expect(message).toEqual("Hello from the db!");
   });
 });
