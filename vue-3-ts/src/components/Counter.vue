@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import ControlBar from "./ControlBar.vue";
+import fetchCount from "../services/fetchCount";
 
 interface Props {
   limit: number;
@@ -16,6 +17,13 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const count = ref(0);
+
+// Exampled of typed function as inline callback
+onMounted(() => {
+  fetchCount(initialCount => {
+    count.value = initialCount;
+  });
+});
 
 function addCount(number: number) {
   if (count.value !== null) {
