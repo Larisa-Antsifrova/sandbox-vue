@@ -18,14 +18,6 @@ Vue Docs:
 - Ajax requests
 - Forms: emit/ provide-inject/ slots
 
-## NetNinja
-
-- In process
-
-## Vue & TypeScript
-
-- In progress
-
 ## Vue Scool
 
 - Vue Routing
