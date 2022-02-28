@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import ControlBar from "./ControlBar.vue";
 
 interface Props {
   limit: number;
@@ -25,37 +26,16 @@ function addCount(number: number) {
     }
   }
 }
+
+function resetCount() {
+  count.value = 0;
+}
 </script>
 
 <template>
   <div>
     <p>{{ count }}</p>
-    <div>
-      <button class="btn" @click="addCount(1)">Add</button>
-    </div>
+
+    <ControlBar @add-count="addCount" @reset-count="resetCount" />
   </div>
 </template>
-
-<style scoped>
-.btn {
-  min-width: 80px;
-  padding: 8px 12px;
-  background-color: tomato;
-  border: 1px solid transparent;
-  border-radius: 8px;
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: 700;
-  cursor: pointer;
-
-  transition: all 250ms ease-out;
-}
-
-.btn:hover {
-  color: tomato;
-  border: 1px solid tomato;
-  background-color: #fff;
-
-  transition: all 250ms ease-in;
-}
-</style>
