@@ -4,6 +4,7 @@ const app = Vue.createApp({
       product: "Socks",
       description: "Awesome socks to keep your feet warm and trendy!",
       image: "./assets/images/socks_green.jpg",
+      inStock: true,
     };
   },
 });
