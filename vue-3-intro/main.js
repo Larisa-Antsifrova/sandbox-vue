@@ -17,6 +17,7 @@ const app = Vue.createApp({
           color: "blue",
         },
       ],
+      sizes: ["S", "M", "L", "XL"],
     };
   },
 });
