@@ -12,10 +12,12 @@ const app = Vue.createApp({
         {
           id: 2234,
           color: "green",
+          image: "./assets/images/socks_green.jpg",
         },
         {
           id: 2235,
           color: "blue",
+          image: "./assets/images/socks_blue.jpg",
         },
       ],
       sizes: ["S", "M", "L", "XL"],
@@ -24,6 +26,9 @@ const app = Vue.createApp({
   methods: {
     addToCart() {
       this.cart += 1;
+    },
+    updateImage(image) {
+      this.image = image;
     },
   },
 });
