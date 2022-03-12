@@ -38,9 +38,9 @@
               v-for="variant in variants"
               :key="variant.id"
               @mouseover="updateImage(variant.image)"
-            >
-              {{variant.color}}
-            </div>
+              class="color-circle"
+              :style="{ backgroundColor: variant.color }"
+            ></div>
 
             <div v-for="size in sizes" :key="size">{{size}}</div>
 
