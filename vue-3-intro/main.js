@@ -23,6 +23,11 @@ const app = Vue.createApp({
       sizes: ["S", "M", "L", "XL"],
     };
   },
+  computed: {
+    inStock() {
+      return !!this.inventory;
+    },
+  },
   methods: {
     addToCart() {
       this.cart += 1;
