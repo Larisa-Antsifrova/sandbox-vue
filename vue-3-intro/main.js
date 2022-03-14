@@ -5,6 +5,7 @@ const app = Vue.createApp({
       product: "Socks",
       description: "Awesome socks to keep your feet warm and trendy!",
       image: "./assets/images/socks_green.jpg",
+      brand: "Vue Mastery",
       inventory: 100,
       onSale: true,
       details: ["50% cotton", "30% wool", "20% polyester"],
@@ -26,6 +27,9 @@ const app = Vue.createApp({
   computed: {
     inStock() {
       return !!this.inventory;
+    },
+    title() {
+      return this.brand + " " + this.product;
     },
   },
   methods: {
