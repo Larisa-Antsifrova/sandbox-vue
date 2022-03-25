@@ -28,5 +28,6 @@ The new marathon has just begun!
 
 ## Vue Mastery
 
+- Vue3 Intro
 - Vue3 Unit Testing
 - Vue3 TypeScript
