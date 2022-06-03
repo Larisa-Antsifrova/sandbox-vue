@@ -1,6 +1,9 @@
 <template>
   <div class="home">
     <h1>This is a home page</h1>
+    <v-btn class="d-none d-sm-flex">visible #1</v-btn>
+    <v-btn class="d-flex d-sm-none">visible #2</v-btn>
+    <v-btn class="d-none d-sm-flex d-md-none">visible #3</v-btn>
 
     <v-btn class="pink white--text">click me</v-btn>
     <v-btn depressed dark color="pink">click me</v-btn>
