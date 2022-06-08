@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    <h1>This is a home page</h1>
+  <div class="dashboard">
+    <h1>Dashboard page</h1>
     <v-btn class="d-none d-sm-flex">visible #1</v-btn>
     <v-btn class="d-flex d-sm-none">visible #2</v-btn>
     <v-btn class="d-none d-sm-flex d-md-none">visible #3</v-btn>
@@ -32,7 +32,7 @@
 
 <script>
 export default {
-  name: "Home",
+  name: "Dashboard",
   components: {},
 };
 </script>
