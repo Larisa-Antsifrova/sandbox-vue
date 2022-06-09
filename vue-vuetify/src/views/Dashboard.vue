@@ -1,6 +1,8 @@
 <template>
   <div class="dashboard">
-    <h1>Dashboard page</h1>
+    <h1 class="subheading grey--text">Dashboard page</h1>
+
+    <v-container class="my-5"> content</v-container>
     <v-btn class="d-none d-sm-flex">visible #1</v-btn>
     <v-btn class="d-flex d-sm-none">visible #2</v-btn>
     <v-btn class="d-none d-sm-flex d-md-none">visible #3</v-btn>
