@@ -2,8 +2,36 @@
   <div class="dashboard">
     <h1 class="subheading grey--text">Dashboard page</h1>
 
-    <v-container class="my-5"> content</v-container>
-    <v-btn class="d-none d-sm-flex">visible #1</v-btn>
+    <v-container class="my-5">
+      <v-row>
+        <v-col cols="12" sm="6">
+          <v-btn outlined block class="primary">One</v-btn>
+        </v-col>
+        <v-col cols="12" sm="6">
+          <v-btn outlined block class="primary">Two</v-btn>
+        </v-col>
+      </v-row>
+
+      <v-row justify="space-around">
+        <v-col cols="4" md="3">
+          <v-btn outlined block class="success">One</v-btn>
+        </v-col>
+        <v-col cols="4" md="3">
+          <v-btn outlined block class="success">One</v-btn>
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "Dashboard",
+  components: {},
+};
+</script>
+
+<!-- <v-btn class="d-none d-sm-flex">visible #1</v-btn>
     <v-btn class="d-flex d-sm-none">visible #2</v-btn>
     <v-btn class="d-none d-sm-flex d-md-none">visible #3</v-btn>
 
@@ -28,13 +56,4 @@
 
     <v-btn fab color="indigo" small dark depressed>
       <v-icon>mdi-heart</v-icon>
-    </v-btn>
-  </div>
-</template>
-
-<script>
-export default {
-  name: "Dashboard",
-  components: {},
-};
-</script>
+    </v-btn> -->
