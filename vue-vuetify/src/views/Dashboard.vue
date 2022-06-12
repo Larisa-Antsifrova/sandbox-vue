@@ -3,23 +3,29 @@
     <h1 class="subheading grey--text">Dashboard page</h1>
 
     <v-container class="my-5">
-      <v-row>
-        <v-col cols="12" sm="6">
-          <v-btn outlined block class="primary">One</v-btn>
-        </v-col>
-        <v-col cols="12" sm="6">
-          <v-btn outlined block class="primary">Two</v-btn>
-        </v-col>
-      </v-row>
+      <v-card class="pa-3">
+        <v-row>
+          <v-col cols="12" md="6">
+            <div class="caption grey--text">Project title</div>
+            <div>Create a new website</div>
+          </v-col>
 
-      <v-row justify="space-around">
-        <v-col cols="4" md="3">
-          <v-btn outlined block class="success">One</v-btn>
-        </v-col>
-        <v-col cols="4" md="3">
-          <v-btn outlined block class="success">One</v-btn>
-        </v-col>
-      </v-row>
+          <v-col cols="6" sm="4" md="2">
+            <div class="caption grey--text">Person</div>
+            <div>The Net Ninja</div>
+          </v-col>
+
+          <v-col cols="6" sm="4" md="2">
+            <div class="caption grey--text">Due by</div>
+            <div>1st of July</div>
+          </v-col>
+
+          <v-col cols="6" sm="4" md="2">
+            <div class="caption grey--text">Status</div>
+            <div>Ongoing</div>
+          </v-col>
+        </v-row>
+      </v-card>
     </v-container>
   </div>
 </template>
@@ -57,3 +63,21 @@ export default {
     <v-btn fab color="indigo" small dark depressed>
       <v-icon>mdi-heart</v-icon>
     </v-btn> -->
+
+<!-- <v-row>
+        <v-col cols="12" sm="6">
+          <v-btn outlined block class="primary">One</v-btn>
+        </v-col>
+        <v-col cols="12" sm="6">
+          <v-btn outlined block class="primary">Two</v-btn>
+        </v-col>
+      </v-row>
+
+      <v-row justify="space-around">
+        <v-col cols="4" md="3">
+          <v-btn outlined block class="success">One</v-btn>
+        </v-col>
+        <v-col cols="4" md="3">
+          <v-btn outlined block class="success">One</v-btn>
+        </v-col>
+      </v-row> -->
