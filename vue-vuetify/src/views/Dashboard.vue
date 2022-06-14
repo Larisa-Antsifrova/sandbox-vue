@@ -21,8 +21,14 @@
           </v-col>
 
           <v-col cols="6" sm="4" md="2">
-            <div class="caption grey--text">Status</div>
-            <div>{{ project.status }}</div>
+            <div class="float-right">
+              <v-chip
+                small
+                class="white--text caption my-2"
+                :color="chipColor(project.status)"
+                >{{ project.status }}
+              </v-chip>
+            </div>
           </v-col>
         </v-row>
       </v-card>
@@ -73,6 +79,20 @@ export default {
       ],
     };
   },
+  methods: {
+    chipColor: function (projectStatus) {
+      switch (projectStatus) {
+        case "ongoing":
+          return "#ffaa2c";
+        case "complete":
+          return "#3cd1c2";
+        case "overdue":
+          return "#f83e70";
+        default:
+          return "";
+      }
+    },
+  },
 };
 </script>
 
@@ -85,6 +105,16 @@ export default {
 }
 .project.overdue {
   border-left: 4px solid tomato;
+}
+
+.chip.complete {
+  background-color: #3cd1c2;
+}
+.v-chip.ongoing {
+  background: #ffaa2c;
+}
+.v-chip.overdue {
+  background: #f83e70;
 }
 </style>
 
