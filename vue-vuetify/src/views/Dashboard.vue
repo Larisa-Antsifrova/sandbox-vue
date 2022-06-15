@@ -3,6 +3,16 @@
     <h1 class="subheading grey--text">Dashboard page</h1>
 
     <v-container class="my-5">
+      <v-row class="mb-3">
+        <v-btn small depressed>
+          <v-icon left small>mdi-folder</v-icon>
+          <span class="caption text-lowercase">By project name</span>
+        </v-btn>
+        <v-btn small depressed>
+          <v-icon left small>mdi-person</v-icon>
+          <span class="caption text-lowercase">By person</span>
+        </v-btn>
+      </v-row>
       <v-card class="pa-3" v-for="project in projects" :key="project.title">
         <v-row :class="`pa-3 project ${project.status}`">
           <v-col cols="12" md="6">
