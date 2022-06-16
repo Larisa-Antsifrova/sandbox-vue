@@ -4,11 +4,11 @@
 
     <v-container class="my-5">
       <v-row class="mb-3">
-        <v-btn small depressed>
+        <v-btn small depressed @click="sortBy('title')">
           <v-icon left small>mdi-folder</v-icon>
           <span class="caption text-lowercase">By project name</span>
         </v-btn>
-        <v-btn small depressed>
+        <v-btn small depressed @click="sortBy('person')">
           <v-icon left small>mdi-person</v-icon>
           <span class="caption text-lowercase">By person</span>
         </v-btn>
@@ -90,7 +90,10 @@ export default {
     };
   },
   methods: {
-    chipColor: function (projectStatus) {
+    sortBy(property) {
+      this.projects.sort((a, b) => (a[property] < b[property] ? -1 : 1));
+    },
+    chipColor(projectStatus) {
       switch (projectStatus) {
         case "ongoing":
           return "#ffaa2c";
