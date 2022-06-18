@@ -2,7 +2,20 @@
   <div class="team">
     <h1 class="subheading grey--text">Team page</h1>
 
-    <v-container class="my-5"> content</v-container>
+    <v-container class="my-5">
+      <v-row>
+        <v-col
+          v-for="person in team"
+          :key="person.name"
+          cols="12"
+          sm="6"
+          md="4"
+          lg="3"
+        >
+          <v-card class="text-center ma-3">{{ person.name }} </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
@@ -10,5 +23,16 @@
 export default {
   name: "Team",
   components: {},
+  data() {
+    return {
+      team: [
+        { name: "The Net Ninja", role: "Web developer" },
+        { name: "Ryu", role: "Graphic designer" },
+        { name: "Chun Li", role: "Web developer" },
+        { name: "Gouken", role: "Social media maverick" },
+        { name: "Yoshi", role: "Sales guru" },
+      ],
+    };
+  },
 };
 </script>
