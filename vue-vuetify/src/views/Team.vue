@@ -12,7 +12,25 @@
           md="4"
           lg="3"
         >
-          <v-card class="text-center ma-3">{{ person.name }} </v-card>
+          <v-card class="text-center ma-3">
+            <v-responsive class="pt-4"> image </v-responsive>
+
+            <v-card-text>
+              <div class="subtitle-1">
+                {{ person.name }}
+              </div>
+              <div class="grey--text">
+                {{ person.role }}
+              </div>
+            </v-card-text>
+
+            <v-card-actions>
+              <v-btn depressed>
+                <v-icon small left>mdi-message</v-icon>
+                <span>Message</span>
+              </v-btn>
+            </v-card-actions>
+          </v-card>
         </v-col>
       </v-row>
     </v-container>
