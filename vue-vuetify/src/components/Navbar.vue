@@ -10,6 +10,26 @@
 
       <v-spacer></v-spacer>
 
+      <v-menu offset-y>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn text color="grey" depressed v-bind="attrs" v-on="on">
+            <v-icon left>mdi-expend-more</v-icon>
+            <span>Menu</span>
+          </v-btn>
+        </template>
+
+        <v-list>
+          <v-list-item
+            v-for="link in links"
+            :key="link.text"
+            router
+            :to="link.route"
+          >
+            <v-list-item-title>{{ link.text }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+
       <v-btn text color="grey">
         <span>Sign out</span>
         <v-icon right>mdi-exit-to-app</v-icon>
