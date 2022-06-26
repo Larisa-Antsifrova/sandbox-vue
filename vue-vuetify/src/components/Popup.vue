@@ -10,10 +10,39 @@
       <v-card-title>
         <h2>Add a new project</h2>
       </v-card-title>
+
+      <v-card-text>
+        <v-form class="px-3">
+          <v-text-field prepend-icon="mdi-folder" label="Title" v-model="title">
+          </v-text-field>
+
+          <v-textarea prepend-icon="mdi-edit" v-model="description">
+            <template v-slot:label>
+              <div>Project description</div>
+            </template>
+          </v-textarea>
+
+          <v-btn class="success mx-0 mt-3" depressed @click="submit"
+            >Add project</v-btn
+          >
+        </v-form>
+      </v-card-text>
     </v-card>
   </v-dialog>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      title: "",
+      description: "",
+    };
+  },
+  methods: {
+    submit() {
+      console.log(this.title, this.description);
+    },
+  },
+};
 </script>
