@@ -22,6 +22,19 @@
             </template>
           </v-textarea>
 
+          <v-menu>
+            <template v-slot:activator="{ on, attrs }">
+              <v-text-field
+                v-bind="attrs"
+                v-on="on"
+                prepend-icon="mdi-date-range"
+                label="Due date"
+                v-model="title"
+              >
+              </v-text-field>
+            </template>
+          </v-menu>
+
           <v-btn class="success mx-0 mt-3" depressed @click="submit"
             >Add project</v-btn
           >
