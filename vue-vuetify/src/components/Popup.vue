@@ -29,10 +29,12 @@
                 v-on="on"
                 prepend-icon="mdi-date-range"
                 label="Due date"
-                v-model="title"
+                :value="due"
               >
               </v-text-field>
             </template>
+
+            <v-date-picker v-model="due"> </v-date-picker>
           </v-menu>
 
           <v-btn class="success mx-0 mt-3" depressed @click="submit"
@@ -50,6 +52,7 @@ export default {
     return {
       title: "",
       description: "",
+      due: null,
     };
   },
   methods: {
