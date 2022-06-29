@@ -29,13 +29,15 @@
                 v-on="on"
                 prepend-icon="mdi-date-range"
                 label="Due date"
-                :value="due"
+                :value="formattedDate"
               >
               </v-text-field>
             </template>
 
             <v-date-picker v-model="due"> </v-date-picker>
           </v-menu>
+
+          <v-spacer></v-spacer>
 
           <v-btn class="success mx-0 mt-3" depressed @click="submit"
             >Add project</v-btn
@@ -47,6 +49,8 @@
 </template>
 
 <script>
+import { format, parseISO } from "date-fns";
+
 export default {
   data() {
     return {
@@ -58,6 +62,11 @@ export default {
   methods: {
     submit() {
       console.log(this.title, this.description);
+    },
+  },
+  computed: {
+    formattedDate() {
+      return this.due ? format(parseISO(this.due), "EEEE, MMMM do yyyy") : "";
     },
   },
 };
