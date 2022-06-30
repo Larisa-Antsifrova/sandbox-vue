@@ -13,10 +13,19 @@
 
       <v-card-text>
         <v-form class="px-3">
-          <v-text-field prepend-icon="mdi-folder" label="Title" v-model="title">
+          <v-text-field
+            :rules="inputRules"
+            prepend-icon="mdi-folder"
+            label="Title"
+            v-model="title"
+          >
           </v-text-field>
 
-          <v-textarea prepend-icon="mdi-edit" v-model="description">
+          <v-textarea
+            :rules="inputRules"
+            prepend-icon="mdi-edit"
+            v-model="description"
+          >
             <template v-slot:label>
               <div>Project description</div>
             </template>
@@ -25,6 +34,7 @@
           <v-menu>
             <template v-slot:activator="{ on, attrs }">
               <v-text-field
+                :rules="inputRules"
                 v-bind="attrs"
                 v-on="on"
                 prepend-icon="mdi-date-range"
@@ -57,6 +67,7 @@ export default {
       title: "",
       description: "",
       due: null,
+      inputRules: [v => v.length >= 3 || "Minimum length is 3 characters."],
     };
   },
   methods: {
