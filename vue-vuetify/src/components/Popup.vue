@@ -12,7 +12,7 @@
       </v-card-title>
 
       <v-card-text>
-        <v-form class="px-3">
+        <v-form class="px-3" ref="form">
           <v-text-field
             :rules="inputRules"
             prepend-icon="mdi-folder"
@@ -72,7 +72,9 @@ export default {
   },
   methods: {
     submit() {
-      console.log(this.title, this.description);
+      if (this.$refs.form.validate()) {
+        console.log(this.title, this.description);
+      }
     },
   },
   computed: {
