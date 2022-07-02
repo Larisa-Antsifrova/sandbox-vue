@@ -11,3 +11,7 @@ Disclamer: Earlier vuetify version is used.
 ### Vuetify Docs
 
 See [Documentation](https://vuetifyjs.com/en/).
+
+### Firestore for DB
+
+Check [Firestore](https://firebase.google.com/)
