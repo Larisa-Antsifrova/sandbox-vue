@@ -60,6 +60,8 @@
 
 <script>
 import { format, parseISO } from "date-fns";
+import db from "@/fb";
+import { collection, addDoc } from "firebase/firestore";
 
 export default {
   data() {
@@ -71,9 +73,19 @@ export default {
     };
   },
   methods: {
-    submit() {
+    async submit() {
       if (this.$refs.form.validate()) {
-        console.log(this.title, this.description);
+        const project = {
+          title: this.title,
+          description: this.description,
+          due: format(parseISO(this.due), "EEEE, MMMM do yyyy"),
+          person: "Athour",
+          status: "ongoing",
+        };
+
+        await addDoc(collection(db, "projects"), project);
+
+        console.log("Added project to DB.");
       }
     },
   },
