@@ -49,7 +49,11 @@
 
           <v-spacer></v-spacer>
 
-          <v-btn class="success mx-0 mt-3" depressed @click="submit"
+          <v-btn
+            :loading="isLoading"
+            class="success mx-0 mt-3"
+            depressed
+            @click="submit"
             >Add project</v-btn
           >
         </v-form>
@@ -70,11 +74,13 @@ export default {
       description: "",
       due: null,
       inputRules: [v => v.length >= 3 || "Minimum length is 3 characters."],
+      isLoading: false,
     };
   },
   methods: {
     async submit() {
       if (this.$refs.form.validate()) {
+        this.isLoading = true;
         const project = {
           title: this.title,
           description: this.description,
@@ -85,7 +91,7 @@ export default {
 
         await addDoc(collection(db, "projects"), project);
 
-        console.log("Added project to DB.");
+        this.isLoading = false;
       }
     },
   },
