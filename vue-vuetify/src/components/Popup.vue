@@ -1,5 +1,5 @@
 <template>
-  <v-dialog max-width="600px">
+  <v-dialog max-width="600px" v-model="isDialogVisible">
     <template v-slot:activator="{ on, attrs }">
       <v-btn color="success" dark depressed v-bind="attrs" v-on="on">
         Add new project
@@ -75,6 +75,7 @@ export default {
       due: null,
       inputRules: [v => v.length >= 3 || "Minimum length is 3 characters."],
       isLoading: false,
+      isDialogVisible: false,
     };
   },
   methods: {
@@ -92,6 +93,7 @@ export default {
         await addDoc(collection(db, "projects"), project);
 
         this.isLoading = false;
+        this.isDialogVisible = false;
       }
     },
   },
