@@ -1,5 +1,12 @@
 <template>
   <nav>
+    <v-snackbar v-model="isNotifShown" :timeout="4000" top color="success">
+      <span>Awesome! You added a new project.</span>
+      <v-btn text depressed @click="isNotifShown = false" class="ml-3">
+        Close
+      </v-btn>
+    </v-snackbar>
+
     <v-app-bar flat app>
       <v-app-bar-nav-icon class="gray--text" @click="drawer = !drawer">
       </v-app-bar-nav-icon>
@@ -85,6 +92,7 @@ export default {
         { icon: "mdi-folder", text: "My Projects", route: "/projects" },
         { icon: "mdi-person", text: "Team", route: "/team" },
       ],
+      isNotifShown: true,
     };
   },
 };
