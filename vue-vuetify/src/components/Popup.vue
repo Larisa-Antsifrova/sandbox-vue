@@ -94,6 +94,7 @@ export default {
 
         this.isLoading = false;
         this.isDialogVisible = false;
+        this.$emit("projectAdded");
       }
     },
   },

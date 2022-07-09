@@ -54,7 +54,7 @@
         </v-flex>
 
         <v-flex class="mt-4 mb-3">
-          <Popup />
+          <Popup @projectAdded="isNotifShown = true" />
         </v-flex>
       </v-layout>
 
@@ -92,7 +92,7 @@ export default {
         { icon: "mdi-folder", text: "My Projects", route: "/projects" },
         { icon: "mdi-person", text: "Team", route: "/team" },
       ],
-      isNotifShown: true,
+      isNotifShown: false,
     };
   },
 };
