@@ -39,7 +39,7 @@
           <span>Sort by person name</span>
         </v-tooltip>
       </v-row>
-      <v-card class="pa-3" v-for="project in projects" :key="project.title">
+      <v-card class="pa-3" v-for="project in projects" :key="project.id">
         <v-row :class="`pa-3 project ${project.status}`">
           <v-col cols="12" md="6">
             <div class="caption grey--text">Project title</div>
