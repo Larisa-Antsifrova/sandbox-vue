@@ -31,3 +31,6 @@ The new marathon has just begun!
 - Vue3 Intro
 - Vue3 Unit Testing
 - Vue3 TypeScript
+
+## The Net Ninja
+- Vuetify
